@@ -169,7 +169,7 @@ public class HomeWindow implements ActionListener {
 
             final String DB_URL = "jdbc:mariadb://127.0.0.1:3306";
             final String USER = "root";
-            final String PASSWORD = "password";
+            final String PASSWORD = "";
 
             try(Connection connection = (Connection) DriverManager.getConnection(DB_URL,USER,PASSWORD))
             {
@@ -200,12 +200,26 @@ public class HomeWindow implements ActionListener {
             catch (SQLException ex) {
                 ex.printStackTrace();
             }
+            //--------------------------------MARIDB ENDS
 
-
-            //--------------------------------MARIDB START
-
-
+            cardCrPanel.removeAll();
+            // Add the second window's content
+            UserPage userPage = new UserPage(this);
+            JPanel secondPanel = userPage.getPanel(); // Get the panel from SecondWindow
+            cardCrPanel.add(secondPanel);
+            // Refresh the main panel to display the new content
+            cardCrPanel.revalidate();
+            cardCrPanel.repaint();
         }
-
+    }
+    //RESET USERNAME FIELD AFTER RETURNING HOME PAGE
+    public void mainWindowSText(String s)
+    {
+        mainWindowSText.setText(s);
+    }
+    //RESET PASSWORD FIELD AFTER RETURNING HOME PAGE
+    public void mainWindowFText(String s)
+    {
+        mainWindowFText.setText(s);
     }
 }
