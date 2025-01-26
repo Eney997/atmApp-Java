@@ -839,7 +839,7 @@ public class RegistrationPage implements ActionListener {
 
             final String DB_URL = "jdbc:mariadb://127.0.0.1:3306";
             final String USER = "root";
-            final String PASSWORD = "";
+            final String PASSWORD = "password";
 
             try(Connection connection = DriverManager.getConnection(DB_URL,USER,PASSWORD))
             {

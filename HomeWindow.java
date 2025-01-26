@@ -69,7 +69,7 @@ public class HomeWindow implements ActionListener {
         passwordText.setForeground(new Color(195, 195, 195));
 
         //------------------------------------------------todoImage
-        ImageIcon imageIcon3 = new ImageIcon(Objects.requireNonNull(Main.class.getResource("/Assets/atm.png")));
+        ImageIcon imageIcon3 = new ImageIcon(Objects.requireNonNull(Main.class.getResource("/Assets/bank.png")));
         // Scale the image to the desired size
         Image image3 = imageIcon3.getImage().getScaledInstance(200, 200, Image.SCALE_SMOOTH);
         atmImage = new JLabel();
@@ -169,7 +169,7 @@ public class HomeWindow implements ActionListener {
 
             final String DB_URL = "jdbc:mariadb://127.0.0.1:3306";
             final String USER = "root";
-            final String PASSWORD = "";
+            final String PASSWORD = "password";
 
             try(Connection connection = (Connection) DriverManager.getConnection(DB_URL,USER,PASSWORD))
             {
