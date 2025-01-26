@@ -7,6 +7,8 @@ import java.util.Locale;
 import java.util.Objects;
 
 public class UserPage implements ActionListener {
+
+    double moneyBalance = 0.00;
     HomeWindow homeWindow;
     JPanel userPanel = new JPanel();
     JButton longOut = new JButton("Long out");
@@ -21,14 +23,61 @@ public class UserPage implements ActionListener {
     JButton depositMoney = new JButton("Deposit");
     JLabel useService = new JLabel();
     JLabel hiUserName = new JLabel();
+    JLabel amountMoney = new JLabel();
     JLabel paymentImage = new JLabel();
+    //in atmButton deposite
+    JButton inDepositButton = new JButton("Pay");
+    JLabel pleasePutDepositeMoney = new JLabel();
+    JTextField depositeMoenyInput = new JTextField();
+    JLabel depositErrors = new JLabel();
+    //go back button from all service
+    JButton goBackFromAllService = new JButton("Go Back");
 
 
     UserPage(HomeWindow homeWindow)
     {
         this.homeWindow = homeWindow;
 
+        //DEPOSITE MONEY STATR
+        inDepositButton.setBounds(390,190,100,50);
+        inDepositButton.setFocusable(false);
+        inDepositButton.addActionListener(this);
+        inDepositButton.setBackground(new Color(12, 12, 12));
+        inDepositButton.setFont(new Font("Arial", Font.BOLD, 16));
+        inDepositButton.setForeground(new Color(195,42,109));
+        inDepositButton.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY, 1));
+        inDepositButton.setVisible(false);
+
+        pleasePutDepositeMoney.setText("Enter the deposit amount");
+        pleasePutDepositeMoney.setBounds(315,65,300,30);
+        pleasePutDepositeMoney.setFont(new Font("Arial", Font.BOLD, 20));
+        pleasePutDepositeMoney.setForeground(Color.lightGray);
+        pleasePutDepositeMoney.setVisible(false);
+
+        depositErrors.setText("Enter amount:");
+        depositErrors.setBounds(290,110,300,20);
+        depositErrors.setFont(new Font("Arial", Font.BOLD, 14));
+        depositErrors.setForeground(Color.lightGray);
+        depositErrors.setVisible(false);
+
+        depositeMoenyInput.setBounds(290, 130, 300, 50);
+        depositeMoenyInput.setBackground(new Color(12, 12, 12));
+        depositeMoenyInput.setFont(new Font("Arial", Font.PLAIN, 20));
+        depositeMoenyInput.setForeground(new Color(195, 195, 195));
+        depositeMoenyInput.setCaretColor(new Color(195, 195, 195));
+        depositeMoenyInput.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY, 1));
+        depositeMoenyInput.setVisible(false);
+
+        //DEPOSITE MONEY END
+
+
         //ATM MENU ELEMENTS START
+
+        amountMoney.setText("Balance:$"+moneyBalance);
+        amountMoney.setBounds(0,30,180,20);
+        amountMoney.setFont(new Font("Arial", Font.BOLD, 16));
+        amountMoney.setForeground(Color.lightGray);
+        amountMoney.setVisible(false);
 
         ImageIcon imageIcon3 = new ImageIcon(Objects.requireNonNull(Main.class.getResource("/Assets/payments.png")));
         // Scale the image to the desired size
@@ -73,7 +122,20 @@ public class UserPage implements ActionListener {
 
         depositMoney.setBounds(250, 150, 170, 50);
         depositMoney.setFocusable(false);
-        depositMoney.addActionListener(this);
+        depositMoney.addActionListener(ex -> {
+            depositMoney.setVisible(false);
+            exit.setVisible(false);
+            transferMoney.setVisible(false);
+            withdrawMoney.setVisible(false);
+            useService.setVisible(false);
+            paymentImage.setVisible(false);
+
+            pleasePutDepositeMoney.setVisible(true);
+            inDepositButton.setVisible(true);
+            depositeMoenyInput.setVisible(true);
+            depositErrors.setVisible(true);
+            goBackFromAllService.setVisible(true);
+        });
         depositMoney.setBackground(new Color(12, 12, 12));
         depositMoney.setFont(new Font("Arial", Font.BOLD, 16));
         depositMoney.setForeground(new Color(195, 42, 109));
@@ -90,7 +152,6 @@ public class UserPage implements ActionListener {
         exit.setVisible(false);
 
         //ATM MENU ELEMENTS END
-
 
         enterPin.setBounds(290, 110, 300, 50);
         enterPin.setBackground(new Color(12, 12, 12));
@@ -125,6 +186,44 @@ public class UserPage implements ActionListener {
         enterPinText.setFont(new Font("Arial", Font.BOLD, 14));
         enterPinText.setForeground(Color.lightGray);
 
+        //Go back from all service Button start
+
+        goBackFromAllService.setBounds(390,245,100,50);
+        goBackFromAllService.setFocusable(false);
+        goBackFromAllService.addActionListener(ex1 -> {
+            pleasePutDepositeMoney.setVisible(false);
+            inDepositButton.setVisible(false);
+            depositeMoenyInput.setVisible(false);
+            depositErrors.setVisible(false);
+            goBackFromAllService.setVisible(false);
+
+            depositMoney.setVisible(true);
+            exit.setVisible(true);
+            transferMoney.setVisible(true);
+            withdrawMoney.setVisible(true);
+            useService.setVisible(true);
+            paymentImage.setVisible(true);
+
+            depositErrors.setText("Enter amount:");
+            depositErrors.setForeground(Color.lightGray);
+            depositeMoenyInput.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY, 1));
+        });
+        goBackFromAllService.setBackground(new Color(12, 12, 12));
+        goBackFromAllService.setFont(new Font("Arial", Font.BOLD, 16));
+        goBackFromAllService.setForeground(new Color(195,42,109));
+        goBackFromAllService.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY, 1));
+        goBackFromAllService.setVisible(false);
+
+        //Go back from all service Button end
+
+
+        //go back from all service
+        userPanel.add(goBackFromAllService);
+        //atmIn
+        userPanel.add(inDepositButton);
+        userPanel.add(pleasePutDepositeMoney);
+        userPanel.add(depositeMoenyInput);
+        userPanel.add(depositErrors);
         //atmMenuPageElements
         userPanel.add(exit);
         userPanel.add(depositMoney);
@@ -133,6 +232,7 @@ public class UserPage implements ActionListener {
         userPanel.add(useService);
         userPanel.add(hiUserName);
         userPanel.add(paymentImage);
+        userPanel.add(amountMoney);
         //userPincodeEntryPageElements
         userPanel.add(submitPin);
         userPanel.add(enterPinText);
@@ -252,25 +352,113 @@ public class UserPage implements ActionListener {
                 useService.setVisible(true);
                 hiUserName.setVisible(true);
                 paymentImage.setVisible(true);
+                amountMoney.setVisible(true);
 
                 //if user enters correct pin than go in atm menu . END.
             }
 
             if (e.getSource() == exit) {
-                // Get the parent container of the current panel
-                Container parent = userPanel.getParent();
+                    // Get the parent container of the current panel
+                    Container parent = userPanel.getParent();
 
-                if (parent != null) {
-                // Remove the RegistrationWindow panel from the parent
-                parent.remove(userPanel);
-                homeWindow.mainWindowSText("");
-                homeWindow.mainWindowFText("");
-                // Call goBackToMain to reset the HomeWindow panel
-                homeWindow.goBackToMain();
-                // Revalidate and repaint the parent to refresh the UI
-                parent.revalidate();
-                parent.repaint();
+                    if (parent != null) {
+                    // Remove the RegistrationWindow panel from the parent
+                    parent.remove(userPanel);
+                    homeWindow.mainWindowSText("");
+                    homeWindow.mainWindowFText("");
+                    // Call goBackToMain to reset the HomeWindow panel
+                    homeWindow.goBackToMain();
+                    // Revalidate and repaint the parent to refresh the UI
+                    parent.revalidate();
+                    parent.repaint();
+                 }
             }
-        }
+
+
+            if(e.getSource() == inDepositButton)
+            {
+                String depositSet = depositeMoenyInput.getText();
+
+                if(ValidationClass.emptyInput(depositSet) == 1)
+                {
+                    depositErrors.setText("Enter amount:Empty input");
+                    depositErrors.setForeground(Color.red);
+                    depositeMoenyInput.setBorder(BorderFactory.createLineBorder(Color.red, 1));
+                    return;
+                }
+                else
+                {
+                    depositErrors.setText("Enter amount:");
+                    depositErrors.setForeground(Color.lightGray);
+                    depositeMoenyInput.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY, 1));
+                }
+
+                if(ValidationClass.forbidSpace(depositSet) == 1)
+                {
+                    depositErrors.setText("Enter amount:Space detected");
+                    depositErrors.setForeground(Color.red);
+                    depositeMoenyInput.setBorder(BorderFactory.createLineBorder(Color.red, 1));
+                    return;
+                }
+                else
+                {
+                    depositErrors.setText("Enter amount:");
+                    depositErrors.setForeground(Color.lightGray);
+                    depositeMoenyInput.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY, 1));
+                }
+
+                if(!ValidationClass.containsOnlyNumbers(depositSet))
+                {
+                    depositErrors.setText("Enter amount:Enter only number");
+                    depositErrors.setForeground(Color.red);
+                    depositeMoenyInput.setBorder(BorderFactory.createLineBorder(Color.red, 1));
+                    return;
+                }
+                else
+                {
+                    depositErrors.setText("Enter amount:");
+                    depositErrors.setForeground(Color.lightGray);
+                    depositeMoenyInput.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY, 1));
+                }
+
+                if(ValidationClass.depositAmountMaxNumber(depositSet) == 1)
+                {
+                    depositErrors.setText("Enter amount:To many digit");
+                    depositErrors.setForeground(Color.red);
+                    depositeMoenyInput.setBorder(BorderFactory.createLineBorder(Color.red, 1));
+                    return;
+                }
+                else
+                {
+                    depositErrors.setText("Enter amount:");
+                    depositErrors.setForeground(Color.lightGray);
+                    depositeMoenyInput.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY, 1));
+                }
+
+                if(ValidationClass.maxAmountForDeposite(depositSet) == 1)
+                {
+                    depositErrors.setText("Enter amount:Max amount is 5000$");
+                    depositErrors.setForeground(Color.red);
+                    depositeMoenyInput.setBorder(BorderFactory.createLineBorder(Color.red, 1));
+                    return;
+                }
+                else
+                {
+                    depositErrors.setText("Enter amount:");
+                    depositErrors.setForeground(Color.lightGray);
+                    depositeMoenyInput.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY, 1));
+                }
+
+                double depositAmount = Double.parseDouble(depositSet);
+                moneyBalance += depositAmount;
+
+                // Update the displayed balance
+                amountMoney.setText("Balance: $" + String.format(Locale.US, "%.2f", moneyBalance));
+
+                depositErrors.setText("Enter amount:Transaction was completed");
+                depositErrors.setForeground(Color.green);
+                depositeMoenyInput.setBorder(BorderFactory.createLineBorder(Color.green, 1));
+
+            }
     }
 }

@@ -189,4 +189,30 @@ public class ValidationClass {
         }
         return 0;
     }
+    //MINIMUM AMOUNT FOR DEPOSIT MONEY maxAmountForDeposite
+    public static int maxAmountForDeposite(String str)
+    {
+        int stringValueToInt = Integer.parseInt(str);
+
+        if(stringValueToInt == 0 || stringValueToInt > 5000 )
+        {
+            return 1;
+        }
+        return 0;
+    }
+    //DEPOSITEAMOUNT MAXNUMBER
+    public static int depositAmountMaxNumber(String str)
+    {
+        int minimum = 6;
+        int currecntStrLen = str.length();
+        for(int i = 0;i<currecntStrLen;i++)
+        {
+            if(currecntStrLen > minimum)
+            {
+                return 1;
+            }
+        }
+        return 0;
+    }
+
 }
