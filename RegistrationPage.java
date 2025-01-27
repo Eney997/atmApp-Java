@@ -31,6 +31,7 @@ public class RegistrationPage implements ActionListener {
     JLabel pinText = new JLabel();
     GreetingPage greetingPage;
 
+    //--------------------------------------------------------------------------------REGISTRATION WINDOW ELEMENTS START
     RegistrationPage(HomeWindow homeWindow)
     {
         this.homeWindow = homeWindow;
@@ -109,7 +110,7 @@ public class RegistrationPage implements ActionListener {
         passwordText.setFont(new Font("Arial", Font.PLAIN, 14));
         passwordText.setForeground(Color.lightGray);
 
-        //---------------------------------------------------------------------------------------------------- CARD INFO START
+        //-----------------------------------------------------------------------------------------------CARD INFO START
         cardDigits.setBounds(490,40,300,50);
         cardDigits.setBackground(new Color(12, 12, 12));
         cardDigits.setFont(new Font("Arial", Font.PLAIN, 20));
@@ -179,9 +180,9 @@ public class RegistrationPage implements ActionListener {
         pinText.setFont(new Font("Arial", Font.PLAIN, 14));
         pinText.setForeground(Color.lightGray);
 
-        //----------------------------------------------------------------------------------------------------CARD INFO END
+        //-------------------------------------------------------------------------------------------------CARD INFO END
 
-        //ADD ELEMENTS ON REGISTRATION PANEL
+        //----------------------------------------------------------------------ADD ELEMENTS ON REGISTRATION PANEL START
         regPanel.add(expMonth);
         regPanel.add(expYear);
         regPanel.add(expMonthText);
@@ -205,17 +206,21 @@ public class RegistrationPage implements ActionListener {
         regPanel.setBounds(20, 50, 850, 400);
         regPanel.setLayout(null);
         regPanel.setBackground(new Color(12,12,12));
+        //------------------------------------------------------------------------ADD ELEMENTS ON REGISTRATION PANEL END
     }
+    //----------------------------------------------------------------------------------REGISTRATION WINDOW ELEMENTS END
 
-    //getPanel to move beatween windows
+
+    //---------------------------------------------------------------------------------getPanel to move beatween windows
     public JPanel getPanel()
     {
         return regPanel;
     }
 
+    //------------------------------------------------------------------actions on click events ,Check validations START
     @Override
     public void actionPerformed(ActionEvent e) {
-        //go back actionListener
+        //----------------------------------------------------------------------------------go back actionListener SATRT
         if (e.getSource() == goBakcButton)
         {
             // Get the parent container of the current panel
@@ -236,7 +241,9 @@ public class RegistrationPage implements ActionListener {
                 parent.repaint();
             }
         }
-        //submit actionListener
+        //------------------------------------------------------------------------------------go back actionListener END
+
+        //----------------------------------------------------------------------------submit BUTTON actionListener START
         if (e.getSource() == submitButton)
         {
             //take input values on variables
@@ -250,13 +257,14 @@ public class RegistrationPage implements ActionListener {
             String cvvCvcSet = cvvCvc.getText();
             String pinSet = cardPin.getText();
 
-            //-------------------------------------------FORBID SPACE IN EVERY INPUT
+            //-------------------------------------------------------------------------FORBID SPACE IN EVERY INPUT START
             if (ValidationClass.forbidSpace(nameSet) == 1) {
                 name.setBorder(BorderFactory.createLineBorder(Color.RED, 1));
                 nameText.setForeground(Color.red);
                 nameText.setText("Holder Name:Space detected");
                 return;
-            } else {
+            }
+            else {
                 name.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY, 1));
                 nameText.setText("Holder Name:");
                 nameText.setForeground(Color.lightGray);
@@ -267,7 +275,8 @@ public class RegistrationPage implements ActionListener {
                 lastNameText.setForeground(Color.red);
                 lastNameText.setText("Holder Surname:Space detected");
                 return;
-            } else {
+            }
+            else {
                 lastName.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY, 1));
                 lastNameText.setText("Holder Surname:");
                 lastNameText.setForeground(Color.lightGray);
@@ -278,7 +287,8 @@ public class RegistrationPage implements ActionListener {
                 userNameText.setForeground(Color.red);
                 userNameText.setText("UserName:Space detected");
                 return;
-            } else {
+            }
+            else {
                 userName.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY, 1));
                 userNameText.setText("UserName:");
                 userNameText.setForeground(Color.lightGray);
@@ -289,7 +299,8 @@ public class RegistrationPage implements ActionListener {
                 passwordText.setForeground(Color.red);
                 passwordText.setText("Password:Space detected");
                 return;
-            } else {
+            }
+            else {
                 password.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY, 1));
                 passwordText.setText("Password:");
                 passwordText.setForeground(Color.lightGray);
@@ -300,7 +311,8 @@ public class RegistrationPage implements ActionListener {
                 digitNumText.setForeground(Color.red);
                 digitNumText.setText("Card 16 Digit:Space detected");
                 return;
-            } else {
+            }
+            else {
                 cardDigits.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY, 1));
                 digitNumText.setText("Card 16 Digit:");
                 digitNumText.setForeground(Color.lightGray);
@@ -367,39 +379,44 @@ public class RegistrationPage implements ActionListener {
                 pinText.setForeground(Color.lightGray);
                 pinText.setText("Card Pin:");
             }
+            //---------------------------------------------------------------------------FORBID SPACE IN EVERY INPUT END
 
-
-            //-----------------CONDITIONS IF NAME AND CARD HOLDER CONTAINS NUMBER
+            //--------------------------------------------------CONDITIONS IF NAME AND CARD HOLDER CONTAINS NUMBER START
             if (ValidationClass.containsOnlyLetters(nameSet) == 1) {
                 name.setBorder(BorderFactory.createLineBorder(Color.RED, 1));
                 nameText.setForeground(Color.red);
                 nameText.setText("Holder Name:Only letters are allowed");
                 return;
-            } else {
+            }
+            else {
                 name.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY, 1));
                 nameText.setText("Holder Name:");
                 nameText.setForeground(Color.lightGray);
             }
+            //----------------------------------------------------CONDITIONS IF NAME AND CARD HOLDER CONTAINS NUMBER END
 
-            //-----------------CONDITIONS IF LASTNAME CONTAINS NUMBER
+            //--------------------------------------------------------------CONDITIONS IF LASTNAME CONTAINS NUMBER START
             if (ValidationClass.containsOnlyLetters(lastnameSet) == 1) {
                 lastName.setBorder(BorderFactory.createLineBorder(Color.RED, 1));
                 lastNameText.setForeground(Color.red);
                 lastNameText.setText("Holder Surname:Only letters are allowed");
                 return;
-            } else {
+            }
+            else {
                 lastName.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY, 1));
                 lastNameText.setText("Holder Surname:");
                 lastNameText.setForeground(Color.lightGray);
             }
+            //----------------------------------------------------------------CONDITIONS IF LASTNAME CONTAINS NUMBER END
 
-            //-----------------CONDITIONS IF ANY INPUT IS EMPTY
+            //--------------------------------------------------------------------CONDITIONS IF ANY INPUT IS EMPTY START
             if (ValidationClass.emptyInput(nameSet) == 1 && ValidationClass.emptyInput(digitSet) == 1) {
                 name.setBorder(BorderFactory.createLineBorder(Color.RED, 1));
                 nameText.setForeground(Color.red);
                 nameText.setText("Holder Name:Empty input");
                 return;
-            } else {
+            }
+            else {
                 name.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY, 1));
                 nameText.setText("Holder Name:");
                 nameText.setForeground(Color.lightGray);
@@ -410,7 +427,8 @@ public class RegistrationPage implements ActionListener {
                 lastNameText.setForeground(Color.red);
                 lastNameText.setText("Holder Surname:Empty input");
                 return;
-            } else {
+            }
+            else {
                 lastName.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY, 1));
                 lastNameText.setText("Holder Surname:");
                 lastNameText.setForeground(Color.lightGray);
@@ -421,7 +439,8 @@ public class RegistrationPage implements ActionListener {
                 userNameText.setForeground(Color.red);
                 userNameText.setText("UserName:Empty input");
                 return;
-            } else {
+            }
+            else {
                 userName.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY, 1));
                 userNameText.setText("UserName:");
                 userNameText.setForeground(Color.lightGray);
@@ -432,7 +451,8 @@ public class RegistrationPage implements ActionListener {
                 passwordText.setForeground(Color.red);
                 passwordText.setText("Password:Empty input");
                 return;
-            } else {
+            }
+            else {
                 password.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY, 1));
                 passwordText.setText("Password:");
                 passwordText.setForeground(Color.lightGray);
@@ -513,14 +533,16 @@ public class RegistrationPage implements ActionListener {
                 pinText.setForeground(Color.lightGray);
                 pinText.setText("Card Pin:");
             }
+            //----------------------------------------------------------------------CONDITIONS IF ANY INPUT IS EMPTY END
 
-            //-----------------CONDITIONS FOR NAME AND LASTNAME IF FIRST LETTER IS NOT CAPITAL
+            //-------------------------------------CONDITIONS FOR NAME AND LASTNAME IF FIRST LETTER IS NOT CAPITAL START
             if (ValidationClass.capitalLetterFirst(nameSet) == 1) {
                 name.setBorder(BorderFactory.createLineBorder(Color.RED, 1));
                 nameText.setForeground(Color.red);
                 nameText.setText("Holder Name:The first letter must be capital");
                 return;
-            } else {
+            }
+            else {
                 name.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY, 1));
                 nameText.setText("Holder Name:");
                 nameText.setForeground(Color.lightGray);
@@ -531,19 +553,22 @@ public class RegistrationPage implements ActionListener {
                 lastNameText.setForeground(Color.red);
                 lastNameText.setText("Holder Surname:The first letter must be capital");
                 return;
-            } else {
+            }
+            else {
                 lastName.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY, 1));
                 lastNameText.setText("Holder Surname:");
                 lastNameText.setForeground(Color.lightGray);
             }
+            //---------------------------------------CONDITIONS FOR NAME AND LASTNAME IF FIRST LETTER IS NOT CAPITAL END
 
-            //-------------------------------------------DO NOT ALLOWS UPPERCASE AFTER FIRS LETTER IN NAME AND LASTNAME INPUT
+            //--------------------------------DO NOT ALLOWS UPPERCASE AFTER FIRS LETTER IN NAME AND LASTNAME INPUT START
             if (ValidationClass.fullStringCantBeCapital(nameSet) == 1) {
                 name.setBorder(BorderFactory.createLineBorder(Color.RED, 1));
                 nameText.setForeground(Color.red);
                 nameText.setText("Holder Name:Only first letter must be capital");
                 return;
-            } else {
+            }
+            else {
                 name.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY, 1));
                 nameText.setText("Holder Name:");
                 nameText.setForeground(Color.lightGray);
@@ -554,20 +579,23 @@ public class RegistrationPage implements ActionListener {
                 lastNameText.setForeground(Color.red);
                 lastNameText.setText("Holder Surname:Only first letter must be capital");
                 return;
-            } else {
+            }
+            else {
                 lastName.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY, 1));
                 lastNameText.setText("Holder Surname:");
                 lastNameText.setForeground(Color.lightGray);
             }
+            //----------------------------------DO NOT ALLOWS UPPERCASE AFTER FIRS LETTER IN NAME AND LASTNAME INPUT END
 
-            //-------------------------------------------MINIMUM LENGTH FOR USERNAME AND PASSWORD
+            //------------------------------------------------------------MINIMUM LENGTH FOR USERNAME AND PASSWORD START
 
             if (ValidationClass.minimumLengthForUserName(usernameSet) == 1) {
                 userName.setBorder(BorderFactory.createLineBorder(Color.RED, 1));
                 userNameText.setForeground(Color.red);
                 userNameText.setText("UserName:Minimum 7 character");
                 return;
-            } else {
+            }
+            else {
                 userName.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY, 1));
                 userNameText.setText("UserName:");
                 userNameText.setForeground(Color.lightGray);
@@ -578,25 +606,29 @@ public class RegistrationPage implements ActionListener {
                 passwordText.setForeground(Color.red);
                 passwordText.setText("Password:Minimum 7 character");
                 return;
-            } else {
+            }
+            else {
                 password.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY, 1));
                 passwordText.setText("Password:");
                 passwordText.setForeground(Color.lightGray);
             }
+            //--------------------------------------------------------------MINIMUM LENGTH FOR USERNAME AND PASSWORD END
 
-            //-------------------------------------------IN USERNAME USER CAN WRITE ONLY NUMBER AND LETTER
+            //---------------------------------------------------IN USERNAME USER CAN WRITE ONLY NUMBER AND LETTER START
             if (ValidationClass.userCanWriteOnlyNumAndLet(usernameSet) == 1) {
                 userName.setBorder(BorderFactory.createLineBorder(Color.RED, 1));
                 userNameText.setForeground(Color.red);
                 userNameText.setText("UserName:Only numbers and letters");
                 return;
-            } else {
+            }
+            else {
                 userName.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY, 1));
                 userNameText.setText("UserName:");
                 userNameText.setForeground(Color.lightGray);
             }
+            //-----------------------------------------------------IN USERNAME USER CAN WRITE ONLY NUMBER AND LETTER END
 
-            //-------------------------------------------MATCH ERROR BETWEEN NAME AND LASTNAME
+            //---------------------------------------------------------------MATCH ERROR BETWEEN NAME AND LASTNAME STATR
             if (nameSet.equals(lastnameSet)) {
                 name.setBorder(BorderFactory.createLineBorder(Color.RED, 1));
                 nameText.setForeground(Color.red);
@@ -605,7 +637,8 @@ public class RegistrationPage implements ActionListener {
                 lastNameText.setForeground(Color.red);
                 lastNameText.setText("Holder Surname:Similar first and last name");
                 return;
-            } else {
+            }
+            else {
                 name.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY, 1));
                 nameText.setText("Holder Name:");
                 nameText.setForeground(Color.lightGray);
@@ -613,8 +646,9 @@ public class RegistrationPage implements ActionListener {
                 lastNameText.setText("Holder Surname:");
                 lastNameText.setForeground(Color.lightGray);
             }
+            //-----------------------------------------------------------------MATCH ERROR BETWEEN NAME AND LASTNAME END
 
-            //-------------------------------------------MATCH ERROR BETWEEN NAME AND USERNAME
+            //---------------------------------------------------------------MATCH ERROR BETWEEN NAME AND USERNAME START
             if (nameSet.equals(usernameSet)) {
                 name.setBorder(BorderFactory.createLineBorder(Color.RED, 1));
                 nameText.setForeground(Color.red);
@@ -623,7 +657,8 @@ public class RegistrationPage implements ActionListener {
                 userNameText.setForeground(Color.red);
                 userNameText.setText("UserName:Similar username and name");
                 return;
-            } else {
+            }
+            else {
                 name.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY, 1));
                 nameText.setText("Holder Name:");
                 nameText.setForeground(Color.lightGray);
@@ -631,20 +666,23 @@ public class RegistrationPage implements ActionListener {
                 userNameText.setText("UserName:");
                 userNameText.setForeground(Color.lightGray);
             }
+            //-----------------------------------------------------------------MATCH ERROR BETWEEN NAME AND USERNAME END
 
-            //-------------------------------------------PASSWORD MUST CONTAIN
+            //------------------------------------------------------------------------STRONG PASSWORD MUST CONTAIN START
             if (ValidationClass.passwordMust(passwordSet) == 1) {
                 password.setBorder(BorderFactory.createLineBorder(Color.RED, 1));
                 passwordText.setForeground(Color.red);
                 passwordText.setText("Password:UppCase,numbers,and symbols");
                 return;
-            } else {
+            }
+            else {
                 password.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY, 1));
                 passwordText.setForeground(Color.lightGray);
                 passwordText.setText("Password:");
             }
+            //--------------------------------------------------------------------------STRONG PASSWORD MUST CONTAIN END
 
-            //-------------------------------------------ONLY NUMBERS
+            //----------------------------------------------------------------------------------------ONLY NUMBERS START
             if(!ValidationClass.containsOnlyNumbers(digitSet))
             {
                 cardDigits.setBorder(BorderFactory.createLineBorder(Color.RED, 1));
@@ -720,9 +758,9 @@ public class RegistrationPage implements ActionListener {
                 pinText.setForeground(Color.lightGray);
                 pinText.setText("Card Pin:");
             }
+            //------------------------------------------------------------------------------------------ONLY NUMBERS END
 
-
-            //-------------------------------------------NUMBERS COUNT ON CARD INFO MAX AND MINIMUM NUMBERS
+            //--------------------------------------------------NUMBERS COUNT ON CARD INFO MAX AND MINIMUM NUMBERS START
 
             if(ValidationClass.minimumThre(cvvCvcSet) == 1)
             {
@@ -742,7 +780,6 @@ public class RegistrationPage implements ActionListener {
                 expMonthText.setText("exp.Month:");
             }
 
-
             if(ValidationClass.minimumTwo(expYset) == 1)
             {
                 expYear.setBorder(BorderFactory.createLineBorder(Color.RED, 1));
@@ -758,7 +795,6 @@ public class RegistrationPage implements ActionListener {
                 expYearText.setText("exp.Year:");
                 expMonthText.setText("exp.Month:");
             }
-
 
             if(ValidationClass.minimumTwo(expMset) == 1)
             {
@@ -802,7 +838,22 @@ public class RegistrationPage implements ActionListener {
                 pinText.setText("Card Pin:");
             }
 
-            //-------------------------------------------YEAR AND MOTH COMPARE
+            if(ValidationClass.forbidFirstNumZero(pinSet) == 1)
+            {
+                cardPin.setBorder(BorderFactory.createLineBorder(Color.RED, 1));
+                pinText.setForeground(Color.red);
+                pinText.setText("Card Pin:First number is zero");
+                return;
+            }
+            else
+            {
+                cardPin.setBorder(BorderFactory.createLineBorder(Color.lightGray, 1));
+                pinText.setForeground(Color.lightGray);
+                pinText.setText("Card Pin:");
+            }
+            //----------------------------------------------------NUMBERS COUNT ON CARD INFO MAX AND MINIMUM NUMBERS END
+
+            //-------------------------------------------------------------------------------YEAR AND MOTH COMPARE START
             if(ValidationClass.convertYear(expYset) == 1)
             {
                 expYear.setBorder(BorderFactory.createLineBorder(Color.RED, 1));
@@ -819,7 +870,6 @@ public class RegistrationPage implements ActionListener {
                 expMonthText.setText("exp.Month:");
             }
 
-
             if(ValidationClass.convertMonth(expMset) == 1)
             {
                 expMonth.setBorder(BorderFactory.createLineBorder(Color.RED, 1));
@@ -833,9 +883,9 @@ public class RegistrationPage implements ActionListener {
                 expMonthText.setForeground(Color.lightGray);
                 expMonthText.setText("exp.Month:");
             }
+            //---------------------------------------------------------------------------------YEAR AND MOTH COMPARE END
 
-
-            //-------------------------------------MARIADB STARTS
+            //--------------------------------------------------------------------------------------------MARIADB STARTS
 
             final String DB_URL = "jdbc:mariadb://127.0.0.1:3306";
             final String USER = "root";
@@ -869,7 +919,8 @@ public class RegistrationPage implements ActionListener {
                     checkStmt.setString(1,usernameSet);
                     try(ResultSet resultSet = checkStmt.executeQuery())
                     {
-                        if (resultSet.next()) {
+                        if (resultSet.next())
+                        {
                             userName.setBorder(BorderFactory.createLineBorder(Color.RED, 1));
                             userNameText.setForeground(Color.red);
                             userNameText.setText("UserName:The username already exists");
@@ -901,8 +952,7 @@ public class RegistrationPage implements ActionListener {
             {
                 ex.printStackTrace();
             }
-            //-------------------------------------MARIADB ENDS
-
+            //----------------------------------------------------------------------------------------------MARIADB ENDS
 
             // Remove all components from the main panel
             // Get the parent container of the current panel
@@ -922,5 +972,7 @@ public class RegistrationPage implements ActionListener {
                 parent.repaint();
             }
         }
+        //------------------------------------------------------------------------------submit BUTTON actionListener END
     }
 }
+//------------------------------------------------------------------------actions on click events ,Check validations END

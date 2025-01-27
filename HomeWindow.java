@@ -18,7 +18,7 @@ public class HomeWindow implements ActionListener {
     JLabel atmImage = new JLabel();
     RegistrationPage regPage;
 
-    // Constructor to initialize the JPanel
+    //------------------------------------------------------------------------Constructor to initialize the JPanel START
     HomeWindow() {
 
         //button LOGIN
@@ -77,6 +77,7 @@ public class HomeWindow implements ActionListener {
         atmImage.setIcon(new ImageIcon(image3));
         atmImage.setBounds(70, 70, 200, 200);
 
+        //-------------------------------------------------------------------------------add element son cardPanel START
         cardCrPanel.add(atmImage);
         cardCrPanel.add(loginButton);
         cardCrPanel.add(registerButton);
@@ -87,9 +88,11 @@ public class HomeWindow implements ActionListener {
         cardCrPanel.setBounds(20, 51, 850, 400);
         cardCrPanel.setLayout(null);
         cardCrPanel.setBackground(new Color(12, 12, 12));
-
+        //---------------------------------------------------------------------------------add element son cardPanel END
     }
+    //--------------------------------------------------------------------------Constructor to initialize the JPanel END
 
+    //------------------------------------------------------------------------------------------------methodto get panel
     public Component getPanel() {
         return cardCrPanel;
     }
@@ -111,9 +114,11 @@ public class HomeWindow implements ActionListener {
         cardCrPanel.repaint();
     }
 
+    //----------------------------------------------------------------------ACTION LISTENER ON REGISTRATION BUTTON START
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == registerButton) {
+        if (e.getSource() == registerButton)
+        {
             Container parent = cardCrPanel.getParent();
 
             if (parent != null) {
@@ -130,13 +135,16 @@ public class HomeWindow implements ActionListener {
                 parent.repaint();
             }
         }
+        //--------------------------------------------------------------------ACTION LISTENER ON REGISTRATION BUTTON END
 
+        //-------------------------------------------------------------------------ACTION LISTENER ON LOGIN BUTTON START
         if(e.getSource() == loginButton)
         {
+            //TAKE AND STORE USERNAME AND PASSWORD INPUTS ON VARIABLE
             String userNameSet = mainWindowFText.getText();
             String passwordSet = mainWindowSText.getText();
 
-            //-------------------------------------SHOOTS ERROR IF INPUTES ARE EMPTY
+            //-------------------------------------------------------------------------SHOOTS ERROR IF INPUTES ARE EMPTY
             if(ValidationClass.emptyInput(userNameSet) == 1)
             {
                 userNameText.setText("UserNmae:Input can't be empty");
@@ -165,7 +173,7 @@ public class HomeWindow implements ActionListener {
                 mainWindowSText.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY, 1));
             }
 
-            //--------------------------------MARIDB START
+            //----------------------------------------------------------------------------------------------MARIDB START
 
             final String DB_URL = "jdbc:mariadb://127.0.0.1:3306";
             final String USER = "root";
@@ -200,8 +208,9 @@ public class HomeWindow implements ActionListener {
             catch (SQLException ex) {
                 ex.printStackTrace();
             }
-            //--------------------------------MARIDB ENDS
+            //-----------------------------------------------------------------------------------------------MARIDB ENDS
 
+            //----------------------------------------------------call userPageif passand username will be corecto START
             cardCrPanel.removeAll();
             // Add the second window's content
             UserPage userPage = new UserPage(this);
@@ -210,14 +219,16 @@ public class HomeWindow implements ActionListener {
             // Refresh the main panel to display the new content
             cardCrPanel.revalidate();
             cardCrPanel.repaint();
+            //------------------------------------------------------call userPageif passand username will be corecto END
         }
+        //---------------------------------------------------------------------------ACTION LISTENER ON LOGIN BUTTON END
     }
-    //RESET USERNAME FIELD AFTER RETURNING HOME PAGE
+    //--------------------------------------------------------------------RESET USERNAME FIELD AFTER RETURNING HOME PAGE
     public void mainWindowSText(String s)
     {
         mainWindowSText.setText(s);
     }
-    //RESET PASSWORD FIELD AFTER RETURNING HOME PAGE
+    //--------------------------------------------------------------------RESET PASSWORD FIELD AFTER RETURNING HOME PAGE
     public void mainWindowFText(String s)
     {
         mainWindowFText.setText(s);

@@ -1,5 +1,5 @@
 public class ValidationClass {
-    //-------------------------------------------CHECKS IF THERES NUMBER IN STRING INPUT
+    //---------------------------------------------------------------------------CHECKS IF THERES NUMBER IN STRING INPUT
     public static int containsOnlyLetters(String str) {
         // run in characters of the string
         for (int i = 0; i < str.length(); i++) {
@@ -10,7 +10,7 @@ public class ValidationClass {
         }
         return 0; // Return 0 if all good
     }
-    //-------------------------------------------CHECKS IF INPUT IS EMPTY
+    //------------------------------------------------------------------------------------------CHECKS IF INPUT IS EMPTY
     public static int emptyInput(String str) {
         if (str == null || str.isEmpty()) {
             return 1; // Return 1 for invalid input
@@ -20,7 +20,7 @@ public class ValidationClass {
             return 0;
         }
     }
-    //-------------------------------------------CHECKS IF FIRS LETTER IS UPPERCASE OR NOT IN NAME AND LASTNAME INPUT
+    //----------------------------------------------CHECKS IF FIRS LETTER IS UPPERCASE OR NOT IN NAME AND LASTNAME INPUT
     public static int capitalLetterFirst(String str)
     {
         char firstChar = str.charAt(0);
@@ -29,7 +29,7 @@ public class ValidationClass {
         }
         return 0;
     };
-    //-------------------------------------------DOES NOT ALLOWS UPPERCASE AFTER FIRS LETTER IN NAME AND LASTNAME INPUT
+    //--------------------------------------------DOES NOT ALLOWS UPPERCASE AFTER FIRS LETTER IN NAME AND LASTNAME INPUT
     public static int fullStringCantBeCapital(String str)
     {
 
@@ -41,7 +41,7 @@ public class ValidationClass {
         }
         return 0;
     }
-    //-------------------------------------------DOESNOT ALLOWS SPACE IN EVERY INPUT
+    //-------------------------------------------------------------------------------DOESNOT ALLOWS SPACE IN EVERY INPUT
     public static int forbidSpace(String str)
     {
         for (int i = 0; i < str.length(); i++) {
@@ -52,7 +52,7 @@ public class ValidationClass {
         }
         return 0;
     }
-    //-------------------------------------------COUNT LETTERS
+    //---------------------------------------------------------------------------------------------------COUNT LETTERS 7
     public static int minimumLengthForUserName(String str)
     {
         int minimum = 7;
@@ -66,7 +66,7 @@ public class ValidationClass {
         }
         return 0;
     }
-    //-------------------------------------------COUNT LETTERS 2
+    //---------------------------------------------------------------------------------------------------COUNT LETTERS 3
     public static int minimumThre(String str)
     {
         int minimum = 3;
@@ -80,7 +80,7 @@ public class ValidationClass {
         }
         return 0;
     }
-    //-------------------------------------------COUNT LETTERS 3
+    //---------------------------------------------------------------------------------------------------COUNT LETTERS 2
     public static int minimumTwo(String str)
     {
         int minimum = 2;
@@ -94,7 +94,7 @@ public class ValidationClass {
         }
         return 0;
     }
-    //-------------------------------------------COUNT LETTERS 4
+    //--------------------------------------------------------------------------------------------------COUNT LETTERS 16
     public static int minimumSixTeen(String str)
     {
         int minimum = 16;
@@ -108,7 +108,7 @@ public class ValidationClass {
         }
         return 0;
     }
-    //-------------------------------------------COUNT LETTERS 4
+    //---------------------------------------------------------------------------------------------------COUNT LETTERS 6
     public static int minimumSix(String str)
     {
         int minimum = 6;
@@ -122,7 +122,7 @@ public class ValidationClass {
         }
         return 0;
     }
-    //-------------------------------------------IN USERNAME INPUT ALLOWS TO BE ENTERED ONLY NUMBER AND LETTER
+    //-----------------------------------------------------IN USERNAME INPUT ALLOWS TO BE ENTERED ONLY NUMBER AND LETTER
     public static int userCanWriteOnlyNumAndLet(String str)
     {
         for (int i = 0; i < str.length(); i++)
@@ -135,7 +135,7 @@ public class ValidationClass {
         }
         return 0;
     }
-    //-------------------------------------------PASSWORD MUST CONTAIN NUMBER LETTER AND CHARACTER
+    //-----------------------------------------------------------------PASSWORD MUST CONTAIN NUMBER LETTER AND CHARACTER
     public static int passwordMust(String str) {
         boolean hasLetter = false;
         boolean hasDigit = false;
@@ -152,14 +152,14 @@ public class ValidationClass {
                 hasSpecialChar = true;
             }
         }
-        // If all conditions are met, return 1 (valid)
+        //If all conditions are met, return 1 (valid)
         if (hasLetter && hasDigit && hasSpecialChar) {
             return 0;
         }
         // Otherwise, return 0 (invalid)
         return 1;
     }
-    //-------------------------------------------CONTAINS ONLY NUMBERS
+    //---------------------------------------------------------------------------------------------CONTAINS ONLY NUMBERS
     public static boolean  containsOnlyNumbers(String str)
     {
         if (str != null && str.matches("[0-9]+")) {
@@ -167,7 +167,7 @@ public class ValidationClass {
         }
         return false;
     }
-    //convert inputed string into integer and compare
+    //-------------------------------------------------------------------convert inputed string into integer and compare
     public static int convertYear(String str)
     {
         int stringValueToInt = Integer.parseInt(str);
@@ -178,7 +178,7 @@ public class ValidationClass {
         }
         return 0;
     }
-    //convert inputed string into integer and compare
+    //-------------------------------------------------------------------convert inputed string into integer and compare
     public static int convertMonth(String str)
     {
         int stringValueToInt = Integer.parseInt(str);
@@ -189,7 +189,7 @@ public class ValidationClass {
         }
         return 0;
     }
-    //MINIMUM AMOUNT FOR DEPOSIT MONEY maxAmountForDeposite
+    //-------------------------------------------------------------MINIMUM AMOUNT FOR DEPOSIT MONEY maxAmountForDeposite
     public static int maxAmountForDeposite(String str)
     {
         int stringValueToInt = Integer.parseInt(str);
@@ -200,7 +200,7 @@ public class ValidationClass {
         }
         return 0;
     }
-    //DEPOSITEAMOUNT MAXNUMBER
+    //------------------------------------------------------------------------------------------DEPOSITEAMOUNT MAXNUMBER
     public static int depositAmountMaxNumber(String str)
     {
         int minimum = 6;
@@ -214,5 +214,13 @@ public class ValidationClass {
         }
         return 0;
     }
-
+    //--------------------------------------------------------------------------------------------FIRST NUM CANT BE ZERO
+    public static int forbidFirstNumZero(String str)
+    {
+        char firstChar = str.charAt(0);
+        if (firstChar == 48 ) {
+            return 1;
+        }
+        return 0;
+    };
 }

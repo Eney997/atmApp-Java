@@ -15,12 +15,12 @@ public class GreetingPage implements ActionListener {
     //UserPage userPage;
     HomeWindow homeWindow;
 
+    //--------------------------------------------------------------------------------ELEMENTS FOR GREETING WINDOW START
     GreetingPage(RegistrationPage registrationWindow,HomeWindow homeWindow)
     {
         this.regWindow = registrationWindow;
         this.homeWindow = homeWindow;
 
-        //REGISTRATION TEXT
         greetingText.setText("Card Information Is Saved");
         greetingText.setBounds(470,10,350,200);
         greetingText.setFont(new Font("Arial", Font.BOLD, 24));
@@ -45,7 +45,7 @@ public class GreetingPage implements ActionListener {
         imageLable.setBounds(100, 35, 200, 200);
 
 
-        //add elements on greeting panel
+        //--------------------------------------------------------------------------add elements on greeting panel START
         greetpanel.add(greetingText);
         greetpanel.add(imageLable);
         greetpanel.add(progressBar);
@@ -53,14 +53,18 @@ public class GreetingPage implements ActionListener {
         greetpanel.setLayout(null);
         greetpanel.setBounds(20,50,850,400);
         greetpanel.setBackground(new Color(12,12,12));
+        //----------------------------------------------------------------------------add elements on greeting panel END
     }
+    //----------------------------------------------------------------------------------ELEMENTS FOR GREETING WINDOW END
 
-    //getPanel to move beatween windows
+
+    //---------------------------------------------------------------------------------getPanel to move beatween windows
     public JPanel getPanel()
     {
         return greetpanel;
     }
 
+    //---------------------------------------------------------------------------------Actoiontos return main menu Start
     @Override
     public void actionPerformed(ActionEvent e)
     {
@@ -86,4 +90,5 @@ public class GreetingPage implements ActionListener {
             }
         }
     }
+    //-----------------------------------------------------------------------------------Actoiontos return main menu END
 }

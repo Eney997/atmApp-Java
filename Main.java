@@ -21,7 +21,11 @@ public class Main {
         //homeWindow
         HomeWindow homeWindow = new HomeWindow();
 
-        //----------------------------------------------------------------------------------------------------------IMAGES AND FRAMES START
+        //here goes images and elements wich one belongs main JFRAME like ,frams buttons for minimize and maximize
+        //and also application movement on click,also we are transfering homeWindow panel here in main jframe
+
+        //---------------------------------------------------------------------------------------IMAGES AND FRAMES START
+
         //------------------------------------------------topFrame address
         ImageIcon imageIcon1 = new ImageIcon(Objects.requireNonNull(Main.class.getResource("/Assets/topBorder.bmp")));
         // Scale the image to the desired size
@@ -51,15 +55,15 @@ public class Main {
         appRightFrame.setBounds(899, 0, 1, 500);
         appRightFrame.setBackground(new Color(70,127,161));
 
-        //creating line for top
+        //--------------------------------------creating line for top
         JPanel linePanel = new JPanel();
         linePanel.setLayout(null);
         linePanel.setBounds(9, 50, 882, 1);
         linePanel.setBackground(new Color(70,127,161));
 
-        //----------------------------------------------------------------------------------------------------------IMAGES AND FRAMES END
+        //-----------------------------------------------------------------------------------------IMAGES AND FRAMES END
 
-        //----------------------------------------------------------------------------------------------------------MINIMIZE AND MAXIMIZE BUTTON START
+        //-------------------------------------------------------------------MINIMIZE AND MAXIMIZE BUTTON ELEMENTS START
         //minimize button
         minimizeButton.setBounds(780, 7, 45, 35);
         minimizeButton.setFocusable(false);
@@ -76,9 +80,9 @@ public class Main {
         exitButton.setForeground(new Color(250,50, 97));
         exitButton.setBorder(BorderFactory.createLineBorder(new Color(195,195,195), 1));
 
-        //----------------------------------------------------------------------------------------------------------MINIMIZE AND MAXIMIZE BUTTON END
+        //---------------------------------------------------------------------MINIMIZE AND MAXIMIZE BUTTON ELEMENTS END
 
-        //----------------------------------------------------------------------------------------------------------MINIMIZE AND MAXIMIZE BUTTON MOUSELISTENERS ALSO APP MOVE  START
+        //----------------------------------------------MINIMIZE AND MAXIMIZE BUTTON MOUSELISTENERS ALSO APP MOVE  START
         // add minimize button event listener
         minimizeButton.addMouseListener(new MouseAdapter() {
             @Override
@@ -122,9 +126,9 @@ public class Main {
             }
         });
 
-        //----------------------------------------------------------------------------------------------------------MINIMIZE AND MAXIMIZE BUTTON MOUSELISTENERS ALSO APP MOVE END
+        //-------------------------------------------------MINIMIZE AND MAXIMIZE BUTTON MOUSELISTENERS ALSO APP MOVE END
 
-        //----------------------------------------------------------------------------------------------------------PUSH ELEMENTS ON FRAME START
+        //----------------------------------------------------------------------------------PUSH ELEMENTS ON FRAME START
         appFrame.add(homeWindow.getPanel());
         appFrame.add(appTopFrame);
         appFrame.add(appBottomFrame);
@@ -144,5 +148,6 @@ public class Main {
         appFrame.setShape(new java.awt.geom.RoundRectangle2D.Double(0, 0, 900, 500, 19, 19));
         // visible frame
         appFrame.setVisible(true);
+        //------------------------------------------------------------------------------------PUSH ELEMENTS ON FRAME END
     }
 }
