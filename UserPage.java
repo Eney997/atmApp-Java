@@ -223,13 +223,10 @@ public class UserPage implements ActionListener {
         paymentImage = new JLabel();
         //makeing cp image sizes
         paymentImage.setIcon(new ImageIcon(image3));
-        paymentImage.setBounds(635, 130, 100, 100);
+        paymentImage.setBounds(635, 123, 100, 100);
         paymentImage.setVisible(false);
 
-        String takeUserName = homeWindow.mainWindowFText.getText();
-        //System.out.println("Username is:"+takeUserName);
-        hiUserName.setText("Hi,"+takeUserName);
-        hiUserName.setBounds(10,55,100,20);
+        hiUserName.setBounds(10,60,100,20);
         hiUserName.setFont(new Font("Arial", Font.BOLD, 16));
         hiUserName.setForeground(Color.lightGray);
         hiUserName.setVisible(false);
@@ -488,7 +485,7 @@ public class UserPage implements ActionListener {
 
                 final String DB_URL = "jdbc:mariadb://127.0.0.1:3306";
                 final String USER = "root";
-                final String PASSWORD = "passwrod";
+                final String PASSWORD = "password";
 
                 try (Connection connection = DriverManager.getConnection(DB_URL, USER, PASSWORD)) {
                     String query = "SELECT * FROM accinfo WHERE username = ? AND pin = ?";
@@ -874,5 +871,10 @@ public class UserPage implements ActionListener {
                 }
             }
         //---------------------------------------------------------------------------------events in exchange button END
+    }
+    //getUSerNameFromHomeWindow
+    public void updateUserName() {
+        String takeUserName = homeWindow.mainWindowFText.getText();
+        hiUserName.setText("Hi,"+takeUserName);
     }
 }

@@ -202,6 +202,8 @@ public class HomeWindow implements ActionListener {
             userPage.longOut.setVisible(true);
             userPage.welCome.setVisible(true);
             userPage.enterPinText.setVisible(true);
+            //updateUsernameToSeeOnUserPage
+            userPage.updateUserName();
 
             loginButton.setVisible(false);
             registerButton.setVisible(false);
