@@ -8,7 +8,6 @@ import java.util.Objects;
 
 public class HomeWindow implements ActionListener {
 
-    JPanel cardCrPanel = new JPanel();
     JButton loginButton = new JButton("Log in");
     JButton registerButton = new JButton("Register");
     JTextField mainWindowFText = new JTextField();
@@ -16,13 +15,13 @@ public class HomeWindow implements ActionListener {
     JLabel userNameText = new JLabel();
     JLabel passwordText = new JLabel();
     JLabel atmImage = new JLabel();
-    RegistrationPage regPage;
+    RegistrationPage registrationPage;
+    UserPage userPage;
 
     //------------------------------------------------------------------------Constructor to initialize the JPanel START
     HomeWindow() {
-
         //button LOGIN
-        loginButton.setBounds(575, 230, 170, 50);
+        loginButton.setBounds(578, 280, 170, 50);
         loginButton.setFocusable(false);
         loginButton.addActionListener(this);
         loginButton.setBackground(new Color(12, 12, 12));
@@ -31,16 +30,46 @@ public class HomeWindow implements ActionListener {
         loginButton.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY, 1));
 
         //BUTTON REGISTER
-        registerButton.setBounds(575, 290, 170, 50);
+        registerButton.setBounds(578, 340, 170, 50);
         registerButton.setFocusable(false);
-        registerButton.addActionListener(this);
+        registerButton.addActionListener(exp->{//if user clicks registration button homeWIndow will dissapear
+            loginButton.setVisible(false);
+            registerButton.setVisible(false);
+            mainWindowSText.setVisible(false);
+            mainWindowFText.setVisible(false);
+            userNameText.setVisible(false);
+            passwordText.setVisible(false);
+            atmImage.setVisible(false);
+
+            registrationPage.digitNumText.setVisible(true);
+            registrationPage.pinText.setVisible(true);
+            registrationPage.cardDigits.setVisible(true);
+            registrationPage.cardPin.setVisible(true);
+            registrationPage.expMonthText.setVisible(true);
+            registrationPage.expYearText.setVisible(true);
+            registrationPage.expMonth.setVisible(true);
+            registrationPage.expYear.setVisible(true);
+            registrationPage.cvvCvcText.setVisible(true);
+            registrationPage.cvvCvc.setVisible(true);
+            registrationPage.password.setVisible(true);
+            registrationPage.passwordText.setVisible(true);
+            registrationPage.userNameText.setVisible(true);
+            registrationPage.userName.setVisible(true);
+            registrationPage.lastName.setVisible(true);
+            registrationPage.lastNameText.setVisible(true);
+            registrationPage.nameText.setVisible(true);
+            registrationPage.name.setVisible(true);
+            registrationPage.goBakcButton.setVisible(true);
+            registrationPage.submitButton.setVisible(true);
+
+        });
         registerButton.setBackground(new Color(12, 12, 12));
         registerButton.setFont(new Font("Arial", Font.BOLD, 16));
         registerButton.setForeground(new Color(195, 42, 109));
         registerButton.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY, 1));
 
         // 1textField
-        mainWindowFText.setBounds(510, 70, 300, 50);
+        mainWindowFText.setBounds(510, 120, 300, 50);
         mainWindowFText.setBackground(new Color(12, 12, 12));
         mainWindowFText.setFont(new Font("Arial", Font.PLAIN, 20));
         mainWindowFText.setForeground(new Color(195, 195, 195));
@@ -48,7 +77,7 @@ public class HomeWindow implements ActionListener {
         mainWindowFText.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY, 1));
 
         // 2textField
-        mainWindowSText.setBounds(510, 160, 300, 50);
+        mainWindowSText.setBounds(510, 200, 300, 50);
         mainWindowSText.setBackground(new Color(12, 12, 12));
         mainWindowSText.setFont(new Font("Arial", Font.PLAIN, 20));
         mainWindowSText.setForeground(new Color(195, 195, 195));
@@ -58,13 +87,13 @@ public class HomeWindow implements ActionListener {
 
         //USERNAME TEXT
         userNameText.setText("UserName:");
-        userNameText.setBounds(510, 55, 300, 12);
+        userNameText.setBounds(510, 105, 300, 12);
         userNameText.setFont(new Font("Arial", Font.PLAIN, 14));
         userNameText.setForeground(new Color(195, 195, 195));
 
         //PASSWORD TEXT
         passwordText.setText("Password:");
-        passwordText.setBounds(510, 145, 200, 12);
+        passwordText.setBounds(510, 185, 200, 12);
         passwordText.setFont(new Font("Arial", Font.PLAIN, 14));
         passwordText.setForeground(new Color(195, 195, 195));
 
@@ -75,67 +104,24 @@ public class HomeWindow implements ActionListener {
         atmImage = new JLabel();
         //makeing cp image sizes
         atmImage.setIcon(new ImageIcon(image3));
-        atmImage.setBounds(70, 70, 200, 200);
-
-        //-------------------------------------------------------------------------------add element son cardPanel START
-        cardCrPanel.add(atmImage);
-        cardCrPanel.add(loginButton);
-        cardCrPanel.add(registerButton);
-        cardCrPanel.add(mainWindowSText);
-        cardCrPanel.add(mainWindowFText);
-        cardCrPanel.add(passwordText);
-        cardCrPanel.add(userNameText);
-        cardCrPanel.setBounds(20, 51, 850, 400);
-        cardCrPanel.setLayout(null);
-        cardCrPanel.setBackground(new Color(12, 12, 12));
-        //---------------------------------------------------------------------------------add element son cardPanel END
+        atmImage.setBounds(110, 100, 200, 200);
     }
     //--------------------------------------------------------------------------Constructor to initialize the JPanel END
 
-    //------------------------------------------------------------------------------------------------methodto get panel
-    public Component getPanel() {
-        return cardCrPanel;
-    }
-
-    public void goBackToMain()
+    //method to make registration window elements visible
+    public void setRegister(RegistrationPage registrationPage)
     {
-        //restore main window
-        cardCrPanel.removeAll();
-
-        cardCrPanel.add(loginButton);
-        cardCrPanel.add(registerButton);
-        cardCrPanel.add(mainWindowFText);
-        cardCrPanel.add(mainWindowSText);
-        cardCrPanel.add(atmImage);
-        cardCrPanel.add(userNameText);
-        cardCrPanel.add(passwordText);
-
-        cardCrPanel.revalidate();
-        cardCrPanel.repaint();
+        this.registrationPage = registrationPage;
     }
 
-    //----------------------------------------------------------------------ACTION LISTENER ON REGISTRATION BUTTON START
+    //method to make registration window elements visible
+    public void userPages(UserPage userPage)
+    {
+        this.userPage = userPage;
+    }
+
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == registerButton)
-        {
-            Container parent = cardCrPanel.getParent();
-
-            if (parent != null) {
-                // Remove the panel from its parent
-                parent.remove(cardCrPanel);
-
-                // Create and add the new registration panel
-                regPage = new RegistrationPage(this);
-                JPanel secondPanel = regPage.getPanel();
-                parent.add(secondPanel);
-
-                // Refresh the parent container
-                parent.revalidate();
-                parent.repaint();
-            }
-        }
-        //--------------------------------------------------------------------ACTION LISTENER ON REGISTRATION BUTTON END
 
         //-------------------------------------------------------------------------ACTION LISTENER ON LOGIN BUTTON START
         if(e.getSource() == loginButton)
@@ -174,7 +160,6 @@ public class HomeWindow implements ActionListener {
             }
 
             //----------------------------------------------------------------------------------------------MARIDB START
-
             final String DB_URL = "jdbc:mariadb://127.0.0.1:3306";
             final String USER = "root";
             final String PASSWORD = "password";
@@ -210,27 +195,23 @@ public class HomeWindow implements ActionListener {
             }
             //-----------------------------------------------------------------------------------------------MARIDB ENDS
 
-            //----------------------------------------------------call userPageif passand username will be corecto START
-            cardCrPanel.removeAll();
-            // Add the second window's content
-            UserPage userPage = new UserPage(this);
-            JPanel secondPanel = userPage.getPanel(); // Get the panel from SecondWindow
-            cardCrPanel.add(secondPanel);
-            // Refresh the main panel to display the new content
-            cardCrPanel.revalidate();
-            cardCrPanel.repaint();
-            //------------------------------------------------------call userPageif passand username will be corecto END
+            //----------------------show userPageif,make invisible homeWindow if pass and username will be corecto START
+
+            userPage.enterPin.setVisible(true);
+            userPage.submitPin.setVisible(true);
+            userPage.longOut.setVisible(true);
+            userPage.welCome.setVisible(true);
+            userPage.enterPinText.setVisible(true);
+
+            loginButton.setVisible(false);
+            registerButton.setVisible(false);
+            mainWindowSText.setVisible(false);
+            mainWindowFText.setVisible(false);
+            userNameText.setVisible(false);
+            passwordText.setVisible(false);
+            atmImage.setVisible(false);
+
+            //------------------------show userPageif,make invisible homeWindow if pass and username will be corecto END
         }
-        //---------------------------------------------------------------------------ACTION LISTENER ON LOGIN BUTTON END
-    }
-    //--------------------------------------------------------------------RESET USERNAME FIELD AFTER RETURNING HOME PAGE
-    public void mainWindowSText(String s)
-    {
-        mainWindowSText.setText(s);
-    }
-    //--------------------------------------------------------------------RESET PASSWORD FIELD AFTER RETURNING HOME PAGE
-    public void mainWindowFText(String s)
-    {
-        mainWindowFText.setText(s);
     }
 }

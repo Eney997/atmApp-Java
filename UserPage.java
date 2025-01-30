@@ -10,7 +10,6 @@ public class UserPage implements ActionListener {
 
     double moneyBalance = 0.00;
     HomeWindow homeWindow;
-    JPanel userPanel = new JPanel();
     JButton longOut = new JButton("Long out");
     JButton submitPin = new JButton("Submit");
     JLabel welCome = new JLabel();
@@ -55,24 +54,24 @@ public class UserPage implements ActionListener {
 
         //-----------------------------------------------------------------------------------------EXCHANGE AMOUNT START
         withdrawalAmountExchange.setText("Withdrawal Amount");
-        withdrawalAmountExchange.setBounds(200,100,150,20);
+        withdrawalAmountExchange.setBounds(240,150,150,20);
         withdrawalAmountExchange.setFont(new Font("Arial", Font.BOLD, 16));
         withdrawalAmountExchange.setForeground(Color.lightGray);
         withdrawalAmountExchange.setVisible(false);
 
         exchangeRate.setText("Exchange Rate");
-        exchangeRate.setBounds(200,157,140,30);
+        exchangeRate.setBounds(240,207,140,30);
         exchangeRate.setFont(new Font("Arial", Font.BOLD, 16));
         exchangeRate.setForeground(Color.lightGray);
         exchangeRate.setVisible(false);
 
         accountChargOnExchange.setText("Account Charge");
-        accountChargOnExchange.setBounds(200,217,150,30);
+        accountChargOnExchange.setBounds(240,267,150,30);
         accountChargOnExchange.setFont(new Font("Arial", Font.BOLD, 16));
         accountChargOnExchange.setForeground(Color.lightGray);
         accountChargOnExchange.setVisible(false);
 
-        withdrawalAmountTextFiled.setBounds(420, 90, 250, 50);
+        withdrawalAmountTextFiled.setBounds(460, 140, 250, 50);
         withdrawalAmountTextFiled.setBackground(new Color(12, 12, 12));
         withdrawalAmountTextFiled.setFont(new Font("Arial", Font.PLAIN, 20));
         withdrawalAmountTextFiled.setForeground(new Color(195, 195, 195));
@@ -80,7 +79,7 @@ public class UserPage implements ActionListener {
         withdrawalAmountTextFiled.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY, 1));
         withdrawalAmountTextFiled.setVisible(false);
 
-        exchangeRateTextFiled.setBounds(420, 150, 250, 50);
+        exchangeRateTextFiled.setBounds(460, 200, 250, 50);
         exchangeRateTextFiled.setBackground(new Color(12, 12, 12));
         exchangeRateTextFiled.setFont(new Font("Arial", Font.PLAIN, 16));
         exchangeRateTextFiled.setForeground(new Color(195, 195, 195));
@@ -89,7 +88,7 @@ public class UserPage implements ActionListener {
         exchangeRateTextFiled.setEditable(false);
         exchangeRateTextFiled.setVisible(false);
 
-        accountChargeTextFiled.setBounds(420, 210, 250, 50);
+        accountChargeTextFiled.setBounds(460, 260, 250, 50);
         accountChargeTextFiled.setBackground(new Color(12, 12, 12));
         accountChargeTextFiled.setFont(new Font("Arial", Font.PLAIN, 20));
         accountChargeTextFiled.setForeground(new Color(195, 195, 195));
@@ -99,13 +98,13 @@ public class UserPage implements ActionListener {
         accountChargeTextFiled.setVisible(false);
 
         chargAmountError.setText("Enter amount:");
-        chargAmountError.setBounds(420,70,300,20);
+        chargAmountError.setBounds(460,120,300,20);
         chargAmountError.setFont(new Font("Arial", Font.BOLD, 13));
         chargAmountError.setForeground(Color.lightGray);
         chargAmountError.setVisible(false);
 
 
-        exchangeGoBackButton.setBounds(570,300,100,50);
+        exchangeGoBackButton.setBounds(610,330,100,50);
         exchangeGoBackButton.setFocusable(false);
         exchangeGoBackButton.addActionListener(expr -> {//LAMMBDA FOR exchange go back service
             withdrawalAmountExchange.setVisible(false);
@@ -137,7 +136,7 @@ public class UserPage implements ActionListener {
         exchangeGoBackButton.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY, 1));
         exchangeGoBackButton.setVisible(false);
 
-        takeMoneyFromExchange.setBounds(460,300,100,50);
+        takeMoneyFromExchange.setBounds(500,330,100,50);
         takeMoneyFromExchange.setFocusable(false);
         takeMoneyFromExchange.addActionListener(this);
         takeMoneyFromExchange.setBackground(new Color(12, 12, 12));
@@ -149,7 +148,7 @@ public class UserPage implements ActionListener {
         //-------------------------------------------------------------------------------------------EXCHANGE AMOUNT END
 
         //------------------------------------------------------------------------------------------WITHDRAW MONEY START
-        inwithdrawButton.setBounds(390,190,100,50);
+        inwithdrawButton.setBounds(400,230,100,50);
         inwithdrawButton.setFocusable(false);
         inwithdrawButton.addActionListener(this);
         inwithdrawButton.setBackground(new Color(12, 12, 12));
@@ -159,18 +158,18 @@ public class UserPage implements ActionListener {
         inwithdrawButton.setVisible(false);
 
         pleasePutWithdrawMoney.setText("Enter the withdrawal amount");
-        pleasePutWithdrawMoney.setBounds(315,65,300,30);
+        pleasePutWithdrawMoney.setBounds(325,100,300,30);
         pleasePutWithdrawMoney.setFont(new Font("Arial", Font.BOLD, 20));
         pleasePutWithdrawMoney.setForeground(Color.lightGray);
         pleasePutWithdrawMoney.setVisible(false);
 
         withdrawErrors.setText("Enter amount:");
-        withdrawErrors.setBounds(290,110,300,20);
+        withdrawErrors.setBounds(300,145,300,20);
         withdrawErrors.setFont(new Font("Arial", Font.BOLD, 14));
         withdrawErrors.setForeground(Color.lightGray);
         withdrawErrors.setVisible(false);
 
-        withdrawMoenyInput.setBounds(290, 130, 300, 50);
+        withdrawMoenyInput.setBounds(300, 165, 300, 50);
         withdrawMoenyInput.setBackground(new Color(12, 12, 12));
         withdrawMoenyInput.setFont(new Font("Arial", Font.PLAIN, 20));
         withdrawMoenyInput.setForeground(new Color(195, 195, 195));
@@ -180,7 +179,7 @@ public class UserPage implements ActionListener {
         //---------------------------------------------------------------------------------------WITHDRAW MONEY MENU END
 
         //-------------------------------------------------------------------------------------DEPOSITE MONEY MENU STATR
-        inDepositButton.setBounds(390,190,100,50);
+        inDepositButton.setBounds(400,230,100,50);
         inDepositButton.setFocusable(false);
         inDepositButton.addActionListener(this);
         inDepositButton.setBackground(new Color(12, 12, 12));
@@ -190,18 +189,18 @@ public class UserPage implements ActionListener {
         inDepositButton.setVisible(false);
 
         pleasePutDepositeMoney.setText("Enter the deposit amount");
-        pleasePutDepositeMoney.setBounds(315,65,300,30);
+        pleasePutDepositeMoney.setBounds(325,100,300,30);
         pleasePutDepositeMoney.setFont(new Font("Arial", Font.BOLD, 20));
         pleasePutDepositeMoney.setForeground(Color.lightGray);
         pleasePutDepositeMoney.setVisible(false);
 
         depositErrors.setText("Enter amount:");
-        depositErrors.setBounds(290,110,300,20);
+        depositErrors.setBounds(300,145,300,20);
         depositErrors.setFont(new Font("Arial", Font.BOLD, 14));
         depositErrors.setForeground(Color.lightGray);
         depositErrors.setVisible(false);
 
-        depositeMoenyInput.setBounds(290, 130, 300, 50);
+        depositeMoenyInput.setBounds(300, 165, 300, 50);
         depositeMoenyInput.setBackground(new Color(12, 12, 12));
         depositeMoenyInput.setFont(new Font("Arial", Font.PLAIN, 20));
         depositeMoenyInput.setForeground(new Color(195, 195, 195));
@@ -213,7 +212,7 @@ public class UserPage implements ActionListener {
 
         //---------------------------------------------------------------------------------------ATM MENU ELEMENTS START
         amountMoney.setText("Balance: $"+moneyBalance);
-        amountMoney.setBounds(0,30,180,20);
+        amountMoney.setBounds(10,80,180,20);
         amountMoney.setFont(new Font("Arial", Font.BOLD, 16));
         amountMoney.setForeground(Color.lightGray);
         amountMoney.setVisible(false);
@@ -224,26 +223,26 @@ public class UserPage implements ActionListener {
         paymentImage = new JLabel();
         //makeing cp image sizes
         paymentImage.setIcon(new ImageIcon(image3));
-        paymentImage.setBounds(580, 90, 100, 100);
+        paymentImage.setBounds(635, 130, 100, 100);
         paymentImage.setVisible(false);
 
-
         String takeUserName = homeWindow.mainWindowFText.getText();
+        //System.out.println("Username is:"+takeUserName);
         hiUserName.setText("Hi,"+takeUserName);
-        hiUserName.setBounds(0,10,100,20);
+        hiUserName.setBounds(10,55,100,20);
         hiUserName.setFont(new Font("Arial", Font.BOLD, 16));
         hiUserName.setForeground(Color.lightGray);
         hiUserName.setVisible(false);
 
         useService.setText("Please select a service");
-        useService.setBounds(300,50,500,50);
+        useService.setBounds(320,100,500,50);
         useService.setFont(new Font("Arial", Font.BOLD, 24));
         useService.setForeground(Color.lightGray);
         useService.setVisible(false);
 
-        exchangeMoney.setBounds(440, 150, 170, 50);
+        exchangeMoney.setBounds(460, 180, 170, 50);
         exchangeMoney.setFocusable(false);
-        exchangeMoney.addActionListener(epxr ->{
+        exchangeMoney.addActionListener(epxr ->{//show exchatnge button elements
             depositMoney.setVisible(false);
             exit.setVisible(false);
             exchangeMoney.setVisible(false);
@@ -267,7 +266,7 @@ public class UserPage implements ActionListener {
         exchangeMoney.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY, 1));
         exchangeMoney.setVisible(false);
 
-        withdrawMoney.setBounds(250, 240, 170, 50);
+        withdrawMoney.setBounds(270, 270, 170, 50);
         withdrawMoney.setFocusable(false);
         withdrawMoney.addActionListener(expr -> { //lambda for setVisible elements
             depositMoney.setVisible(false);
@@ -289,9 +288,9 @@ public class UserPage implements ActionListener {
         withdrawMoney.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY, 1));
         withdrawMoney.setVisible(false);
 
-        depositMoney.setBounds(250, 150, 170, 50);
+        depositMoney.setBounds(270, 180, 170, 50);
         depositMoney.setFocusable(false);
-        depositMoney.addActionListener(expr -> { //lambda for setVisible elements
+        depositMoney.addActionListener(expr -> { //show deposit button elements
             depositMoney.setVisible(false);
             exit.setVisible(false);
             exchangeMoney.setVisible(false);
@@ -311,9 +310,31 @@ public class UserPage implements ActionListener {
         depositMoney.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY, 1));
         depositMoney.setVisible(false);
 
-        exit.setBounds(440, 240, 170, 50);
+        exit.setBounds(460, 270, 170, 50);
         exit.setFocusable(false);
-        exit.addActionListener(this);
+        exit.addActionListener(exp->{//exit from account
+            homeWindow.loginButton.setVisible(true);
+            homeWindow.registerButton.setVisible(true);
+            homeWindow.mainWindowSText.setVisible(true);
+            homeWindow.mainWindowFText.setVisible(true);
+            homeWindow.userNameText.setVisible(true);
+            homeWindow.passwordText.setVisible(true);
+            homeWindow.atmImage.setVisible(true);
+            homeWindow.mainWindowFText.setText("");
+            homeWindow.mainWindowSText.setText("");
+            enterPin.setText("");
+            amountMoney.setText("Balance: $"+0.00);
+
+
+            depositMoney.setVisible(false);
+            exchangeMoney.setVisible(false);
+            withdrawMoney.setVisible(false);
+            paymentImage.setVisible(false);
+            exit.setVisible(false);
+            amountMoney.setVisible(false);
+            hiUserName.setVisible(false);
+            useService.setVisible(false);
+        });
         exit.setBackground(new Color(12, 12, 12));
         exit.setFont(new Font("Arial", Font.BOLD, 16));
         exit.setForeground(new Color(195, 42, 109));
@@ -322,14 +343,24 @@ public class UserPage implements ActionListener {
 
         //-----------------------------------------------------------------------------------------ATM MENU ELEMENTS END
 
-        enterPin.setBounds(290, 110, 300, 50);
+        welCome.setText("Your card is in the ATM machine, please enter the PIN");
+        welCome.setBounds(142,80,700,50);
+        welCome.setFont(new Font("Arial", Font.BOLD, 24));
+        welCome.setForeground(Color.lightGray);
+
+        enterPin.setBounds(300, 165, 300, 50);
         enterPin.setBackground(new Color(12, 12, 12));
         enterPin.setFont(new Font("Arial", Font.PLAIN, 20));
         enterPin.setForeground(new Color(195, 195, 195));
         enterPin.setCaretColor(new Color(195, 195, 195));
         enterPin.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY, 1));
 
-        submitPin.setBounds(390,180,100,50);
+        enterPinText.setText("Enter pin:");
+        enterPinText.setBounds(300,140,300,30);
+        enterPinText.setFont(new Font("Arial", Font.BOLD, 14));
+        enterPinText.setForeground(Color.lightGray);
+
+        submitPin.setBounds(402,230,100,50);
         submitPin.setFocusable(false);
         submitPin.addActionListener(this);
         submitPin.setBackground(new Color(12, 12, 12));
@@ -337,28 +368,35 @@ public class UserPage implements ActionListener {
         submitPin.setForeground(new Color(195,42,109));
         submitPin.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY, 1));
 
-        longOut.setBounds(390,240,100,50);
+        longOut.setBounds(402,290,100,50);
         longOut.setFocusable(false);
-        longOut.addActionListener(this);
+        longOut.addActionListener(exp->{//long out from ping page
+            enterPin.setVisible(false);
+            submitPin.setVisible(false);
+            longOut.setVisible(false);
+            welCome.setVisible(false);
+            enterPinText.setVisible(false);
+
+            homeWindow.loginButton.setVisible(true);
+            homeWindow.registerButton.setVisible(true);
+            homeWindow.mainWindowSText.setVisible(true);
+            homeWindow.mainWindowFText.setVisible(true);
+            homeWindow.userNameText.setVisible(true);
+            homeWindow.passwordText.setVisible(true);
+            homeWindow.atmImage.setVisible(true);
+            homeWindow.mainWindowFText.setText("");
+            homeWindow.mainWindowSText.setText("");
+            enterPin.setText("");
+        });
         longOut.setBackground(new Color(12, 12, 12));
         longOut.setFont(new Font("Arial", Font.BOLD, 16));
         longOut.setForeground(new Color(195,42,109));
         longOut.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY, 1));
 
-        welCome.setText("Your card is in the ATM machine, please enter the PIN");
-        welCome.setBounds(125,25,700,50);
-        welCome.setFont(new Font("Arial", Font.BOLD, 24));
-        welCome.setForeground(Color.lightGray);
-
-        enterPinText.setText("Enter pin:");
-        enterPinText.setBounds(290,85,300,30);
-        enterPinText.setFont(new Font("Arial", Font.BOLD, 14));
-        enterPinText.setForeground(Color.lightGray);
-
         //-----------------------------------------------------------Go back from all service Button start (no exchange)
-        goBackFromAllService.setBounds(390,245,100,50);
+        goBackFromAllService.setBounds(400,290,100,50);
         goBackFromAllService.setFocusable(false);
-        goBackFromAllService.addActionListener(expr -> {//LAMMBDA FOR SHARED GO BACK BUTTON FOR ALL SERVICESIN
+        goBackFromAllService.addActionListener(expr -> {//LAMMBDA FOR SHARED GO BACK BUTTON FOR ALL SERVICESIN (no exchange)
             pleasePutDepositeMoney.setVisible(false);
             inDepositButton.setVisible(false);
             depositeMoenyInput.setVisible(false);
@@ -402,80 +440,12 @@ public class UserPage implements ActionListener {
         goBackFromAllService.setForeground(new Color(195,42,109));
         goBackFromAllService.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY, 1));
         goBackFromAllService.setVisible(false);
-
         //-------------------------------------------------------------Go back from all service Button END (no exchange)
-
-        //-------------------------------------------------------------------------------add elements on userPanel START
-        //exchange money
-        userPanel.add(withdrawalAmountExchange);
-        userPanel.add(accountChargOnExchange);
-        userPanel.add(exchangeRate);
-        userPanel.add(withdrawalAmountTextFiled);
-        userPanel.add(exchangeRateTextFiled);
-        userPanel.add(accountChargeTextFiled);
-        userPanel.add(exchangeGoBackButton);
-        userPanel.add(chargAmountError);
-        userPanel.add(takeMoneyFromExchange);
-        //widthdraw money
-        userPanel.add(pleasePutWithdrawMoney);
-        userPanel.add(inwithdrawButton);
-        userPanel.add(withdrawMoenyInput);
-        userPanel.add(withdrawErrors);
-        //go back from all service
-        userPanel.add(goBackFromAllService);
-        //atmIn
-        userPanel.add(inDepositButton);
-        userPanel.add(pleasePutDepositeMoney);
-        userPanel.add(depositeMoenyInput);
-        userPanel.add(depositErrors);
-        //atmMenuPageElements
-        userPanel.add(exit);
-        userPanel.add(depositMoney);
-        userPanel.add(exchangeMoney);
-        userPanel.add(withdrawMoney);
-        userPanel.add(useService);
-        userPanel.add(hiUserName);
-        userPanel.add(paymentImage);
-        userPanel.add(amountMoney);
-        //userPincodeEntryPageElements
-        userPanel.add(submitPin);
-        userPanel.add(enterPinText);
-        userPanel.add(enterPin);
-        userPanel.add(welCome);
-        userPanel.add(longOut);
-        userPanel.setLayout(null);
-        userPanel.setBounds(0,0,850,400);
-        userPanel.setBackground(new Color(12,12,12));
-        //---------------------------------------------------------------------------------add elements on userPanel END
-    }
-
-    //method to get userpanel in enother window
-    public JPanel getPanel()
-    {
-        return userPanel;
     }
 
     @Override
     public void actionPerformed(ActionEvent e)
     {
-        //---------------------------------------------------------------------- long out from entering pin window START
-        if(e.getSource() == longOut) {
-            // Get the parent container of the current panel
-            Container parent = userPanel.getParent();
-
-            if (parent != null) {
-                    // Remove the RegistrationWindow panel from the parent
-                    parent.remove(userPanel);
-                    homeWindow.mainWindowSText("");
-                    homeWindow.mainWindowFText("");
-                    // Call goBackToMain to reset the HomeWindow panel
-                    homeWindow.goBackToMain();
-                    // Revalidate and repaint the parent to refresh the UI
-                    parent.revalidate();
-                    parent.repaint();
-                 }
-             }
-            //---------------------------------------------------------------------long out from entering pin window END
 
             //----------------------------------------------------------pincode validations and search in database START
             if (e.getSource() == submitPin) {
@@ -518,7 +488,7 @@ public class UserPage implements ActionListener {
 
                 final String DB_URL = "jdbc:mariadb://127.0.0.1:3306";
                 final String USER = "root";
-                final String PASSWORD = "password";
+                final String PASSWORD = "passwrod";
 
                 try (Connection connection = DriverManager.getConnection(DB_URL, USER, PASSWORD)) {
                     String query = "SELECT * FROM accinfo WHERE username = ? AND pin = ?";
@@ -546,7 +516,6 @@ public class UserPage implements ActionListener {
                 //--------------------maria db search pin end
 
                 //-----------------------------------------------if user enters correct pin than go in atm menu . start.
-
                 enterPin.setVisible(false);
                 longOut.setVisible(false);
                 submitPin.setVisible(false);
@@ -561,29 +530,9 @@ public class UserPage implements ActionListener {
                 hiUserName.setVisible(true);
                 paymentImage.setVisible(true);
                 amountMoney.setVisible(true);
-
                 //-------------------------------------------------if user enters correct pin than go in atm menu . END.
             }
             //------------------------------------------------------------pincode validations and search in database END
-
-            //--------------------------------------------------------------------go to main window on exit button START
-            if (e.getSource() == exit) {
-                    // Get the parent container of the current panel
-                    Container parent = userPanel.getParent();
-
-                    if (parent != null) {
-                    // Remove the RegistrationWindow panel from the parent
-                    parent.remove(userPanel);
-                    homeWindow.mainWindowSText("");
-                    homeWindow.mainWindowFText("");
-                    // Call goBackToMain to reset the HomeWindow panel
-                    homeWindow.goBackToMain();
-                    // Revalidate and repaint the parent to refresh the UI
-                    parent.revalidate();
-                    parent.repaint();
-                 }
-            }
-            //----------------------------------------------------------------------go to main window on exit button END
 
             //----------------------------------------------------------------------------events in deposit button START
             if(e.getSource() == inDepositButton)

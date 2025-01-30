@@ -8,21 +8,23 @@ import java.util.Objects;
 public class Main {
     public static void main(String[] args) {
 
-        // Create the JFrame for the main application window
+        // Create mainJFrame
         JFrame appFrame = new JFrame();
-        //buttons
+        //buttons for mainJFRAME
         JButton exitButton = new JButton("X");
         JButton minimizeButton = new JButton("_");
-        //framesfor app
+        //framesfor mainJFRAME
         JLabel appTopFrame = new JLabel();
         JLabel appBottomFrame = new JLabel();
         JPanel appleftFrame = new JPanel();
         JPanel appRightFrame = new JPanel();
-        //homeWindow
+        //makeing visible homeWindow,greetingWindow registrationWindow and userWindow
         HomeWindow homeWindow = new HomeWindow();
+        GreetingPage greetingPage = new GreetingPage(homeWindow);
+        RegistrationPage registrationPage = new RegistrationPage(homeWindow,greetingPage);
+        UserPage userPage = new UserPage(homeWindow);
 
-        //here goes images and elements wich one belongs main JFRAME like ,frams buttons for minimize and maximize
-        //and also application movement on click,also we are transfering homeWindow panel here in main jframe
+        //main JFRANE elements ,minimize maximize buttons,app colorfull frames and app movement
 
         //---------------------------------------------------------------------------------------IMAGES AND FRAMES START
 
@@ -43,7 +45,6 @@ public class Main {
         //makeing cp image sizes
         appBottomFrame.setIcon(new ImageIcon(image2));
         appBottomFrame.setBounds(-1, 493, 901, 7);
-
 
         //------------------------------------------------leftFrame
         appleftFrame.setLayout(null);
@@ -128,8 +129,131 @@ public class Main {
 
         //-------------------------------------------------MINIMIZE AND MAXIMIZE BUTTON MOUSELISTENERS ALSO APP MOVE END
 
-        //----------------------------------------------------------------------------------PUSH ELEMENTS ON FRAME START
-        appFrame.add(homeWindow.getPanel());
+        //----------------------------------------CREATING STYLES MAIN JFRAME AND ADDING DIFFERENT WINDOW ELEMENTS START
+
+        //makeing registration window elements invisible to make visible on clickEvents
+        registrationPage.digitNumText.setVisible(false);
+        registrationPage.pinText.setVisible(false);
+        registrationPage.cardDigits.setVisible(false);
+        registrationPage.cardPin.setVisible(false);
+        registrationPage.expMonthText.setVisible(false);
+        registrationPage.expYearText.setVisible(false);
+        registrationPage.expMonth.setVisible(false);
+        registrationPage.expYear.setVisible(false);
+        registrationPage.cvvCvcText.setVisible(false);
+        registrationPage.cvvCvc.setVisible(false);
+        registrationPage.password.setVisible(false);
+        registrationPage.passwordText.setVisible(false);
+        registrationPage.userNameText.setVisible(false);
+        registrationPage.userName.setVisible(false);
+        registrationPage.lastName.setVisible(false);
+        registrationPage.lastNameText.setVisible(false);
+        registrationPage.nameText.setVisible(false);
+        registrationPage.name.setVisible(false);
+        registrationPage.goBakcButton.setVisible(false);
+        registrationPage.submitButton.setVisible(false);
+        //makeing greeting window elements invisible to make visible on clickEvents
+        greetingPage.greetingText.setVisible(false);
+        greetingPage.mainMenuButton.setVisible(false);
+        greetingPage.imageLable.setVisible(false);
+        //makeing user window elements invisible to make visible on clickEvents
+        userPage.withdrawalAmountExchange.setVisible(false);
+        userPage.exchangeRate.setVisible(false);
+        userPage.accountChargOnExchange.setVisible(false);
+        userPage.exchangeRateTextFiled.setVisible(false);
+        userPage.accountChargeTextFiled.setVisible(false);
+        userPage.chargAmountError.setVisible(false);
+        userPage.exchangeGoBackButton.setVisible(false);
+        userPage.takeMoneyFromExchange.setVisible(false);
+        userPage.inwithdrawButton.setVisible(false);
+        userPage.pleasePutWithdrawMoney.setVisible(false);
+        userPage.withdrawErrors.setVisible(false);
+        userPage.withdrawMoenyInput.setVisible(false);
+        userPage.inDepositButton.setVisible(false);
+        userPage.pleasePutDepositeMoney.setVisible(false);
+        userPage.depositErrors.setVisible(false);
+        userPage.depositeMoenyInput.setVisible(false);
+        userPage.amountMoney.setVisible(false);
+        userPage.paymentImage.setVisible(false);
+        userPage.hiUserName.setVisible(false);
+        userPage.useService.setVisible(false);
+        userPage.exchangeMoney.setVisible(false);
+        userPage.withdrawMoney.setVisible(false);
+        userPage.depositMoney.setVisible(false);
+        userPage.exit.setVisible(false);
+        userPage.enterPin.setVisible(false);
+        userPage.submitPin.setVisible(false);
+        userPage.longOut.setVisible(false);
+        userPage.welCome.setVisible(false);
+        userPage.enterPinText.setVisible(false);
+        userPage.goBackFromAllService.setVisible(false);
+
+        //userWindow elements add to main frame
+        appFrame.add(userPage.withdrawalAmountExchange);
+        appFrame.add(userPage.withdrawalAmountTextFiled);
+        appFrame.add(userPage.exchangeRate);
+        appFrame.add(userPage.accountChargOnExchange);
+        appFrame.add(userPage.exchangeRateTextFiled);
+        appFrame.add(userPage.accountChargeTextFiled);
+        appFrame.add(userPage.chargAmountError);
+        appFrame.add(userPage.exchangeGoBackButton);
+        appFrame.add(userPage.takeMoneyFromExchange);
+        appFrame.add(userPage.inwithdrawButton);
+        appFrame.add(userPage.pleasePutWithdrawMoney);
+        appFrame.add(userPage.withdrawErrors);
+        appFrame.add(userPage.withdrawMoenyInput);
+        appFrame.add(userPage.inDepositButton);
+        appFrame.add(userPage.pleasePutDepositeMoney);
+        appFrame.add(userPage.depositErrors);
+        appFrame.add(userPage.depositeMoenyInput);
+        appFrame.add(userPage.amountMoney);
+        appFrame.add(userPage.paymentImage);
+        appFrame.add(userPage.hiUserName);
+        appFrame.add(userPage.useService);
+        appFrame.add(userPage.exchangeMoney);
+        appFrame.add(userPage.withdrawMoney);
+        appFrame.add(userPage.depositMoney);
+        appFrame.add(userPage.exit);
+        appFrame.add(userPage.enterPin);
+        appFrame.add(userPage.submitPin);
+        appFrame.add(userPage.longOut);
+        appFrame.add(userPage.welCome);
+        appFrame.add(userPage.enterPinText);
+        appFrame.add(userPage.goBackFromAllService);
+        //greeting window elements add to main frame
+        appFrame.add(greetingPage.greetingText);
+        appFrame.add(greetingPage.mainMenuButton);
+        appFrame.add(greetingPage.imageLable);
+        //registration elements add to main frame
+        appFrame.add(registrationPage.digitNumText);
+        appFrame.add(registrationPage.pinText);
+        appFrame.add(registrationPage.cardDigits);
+        appFrame.add(registrationPage.cardPin);
+        appFrame.add(registrationPage.expMonthText);
+        appFrame.add(registrationPage.expYearText);
+        appFrame.add(registrationPage.expMonth);
+        appFrame.add(registrationPage.expYear);
+        appFrame.add(registrationPage.cvvCvcText);
+        appFrame.add(registrationPage.cvvCvc);
+        appFrame.add(registrationPage.password);
+        appFrame.add(registrationPage.passwordText);
+        appFrame.add(registrationPage.userNameText);
+        appFrame.add(registrationPage.userName);
+        appFrame.add(registrationPage.lastName);
+        appFrame.add(registrationPage.nameText);
+        appFrame.add(registrationPage.name);
+        appFrame.add(registrationPage.goBakcButton);
+        appFrame.add(registrationPage.submitButton);
+        appFrame.add(registrationPage.lastNameText);
+        //homewindow elements add to main frame
+        appFrame.add(homeWindow.registerButton);
+        appFrame.add(homeWindow.mainWindowSText);
+        appFrame.add(homeWindow.mainWindowFText);
+        appFrame.add(homeWindow.passwordText);
+        appFrame.add(homeWindow.userNameText);
+        appFrame.add(homeWindow.atmImage);
+        appFrame.add(homeWindow.loginButton);
+        //style main app frame
         appFrame.add(appTopFrame);
         appFrame.add(appBottomFrame);
         appFrame.add(appleftFrame);
@@ -146,8 +270,10 @@ public class Main {
         appFrame.setBounds(300,150,900,500);
         //rounded window
         appFrame.setShape(new java.awt.geom.RoundRectangle2D.Double(0, 0, 900, 500, 19, 19));
-        // visible frame
+        //makeing registration window and userWindow elements visible after clicks
+        homeWindow.setRegister(registrationPage);
+        homeWindow.userPages(userPage);
         appFrame.setVisible(true);
-        //------------------------------------------------------------------------------------PUSH ELEMENTS ON FRAME END
+        //----------------------------------------CREATING STYLES MAIN JFRAME AND ADDING DIFFERENT WINDOW ELEMENTS START
     }
 }

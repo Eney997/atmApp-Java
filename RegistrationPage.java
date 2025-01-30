@@ -7,8 +7,6 @@ import java.util.Objects;
 
 public class RegistrationPage implements ActionListener {
 
-    JPanel regPanel = new JPanel();
-    HomeWindow homeWindow;
     JButton goBakcButton  = new JButton("Go back");
     JButton submitButton  = new JButton("Submit");
     JTextField name = new JTextField();
@@ -30,23 +28,54 @@ public class RegistrationPage implements ActionListener {
     JLabel cvvCvcText = new JLabel();
     JLabel pinText = new JLabel();
     GreetingPage greetingPage;
+    HomeWindow homeWindow;
 
     //--------------------------------------------------------------------------------REGISTRATION WINDOW ELEMENTS START
-    RegistrationPage(HomeWindow homeWindow)
+    RegistrationPage(HomeWindow homeWindow,GreetingPage greetingPage)
     {
         this.homeWindow = homeWindow;
+        this.greetingPage = greetingPage;
 
         //GO BACK button
-        goBakcButton.setBounds(690,264,100,50);
+        goBakcButton.setBounds(710,325,100,50);
         goBakcButton.setFocusable(false);
-        goBakcButton.addActionListener(this);
+        goBakcButton.addActionListener(exp->{
+            digitNumText.setVisible(false);
+            pinText.setVisible(false);
+            cardDigits.setVisible(false);
+            cardPin.setVisible(false);
+            expMonthText.setVisible(false);
+            expYearText.setVisible(false);
+            expMonth.setVisible(false);
+            expYear.setVisible(false);
+            cvvCvcText.setVisible(false);
+            cvvCvc.setVisible(false);
+            password.setVisible(false);
+            passwordText.setVisible(false);
+            userNameText.setVisible(false);
+            userName.setVisible(false);
+            lastName.setVisible(false);
+            lastNameText.setVisible(false);
+            nameText.setVisible(false);
+            name.setVisible(false);
+            goBakcButton.setVisible(false);
+            submitButton.setVisible(false);
+
+            homeWindow.loginButton.setVisible(true);
+            homeWindow.registerButton.setVisible(true);
+            homeWindow.mainWindowSText.setVisible(true);
+            homeWindow.mainWindowFText.setVisible(true);
+            homeWindow.userNameText.setVisible(true);
+            homeWindow.passwordText.setVisible(true);
+            homeWindow.atmImage.setVisible(true);
+        });
         goBakcButton.setBackground(new Color(12, 12, 12));
         goBakcButton.setFont(new Font("Arial", Font.BOLD, 16));
         goBakcButton.setForeground(new Color(195,42,109));
         goBakcButton.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY, 1));
 
         //SUBMIT BUTTON
-        submitButton.setBounds(575,264,100,50);
+        submitButton.setBounds(595,325,100,50);
         submitButton.setFocusable(false);
         submitButton.addActionListener(this);
         submitButton.setBackground(new Color(12, 12, 12));
@@ -55,7 +84,7 @@ public class RegistrationPage implements ActionListener {
         submitButton.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY, 1));
 
         //NAME INPUT
-        name.setBounds(70,40,300,50);
+        name.setBounds(90,100,300,50);
         name.setBackground(new Color(12, 12, 12));
         name.setFont(new Font("Arial", Font.PLAIN, 20));
         name.setForeground(new Color(195, 195, 195));
@@ -63,7 +92,7 @@ public class RegistrationPage implements ActionListener {
         name.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY, 1));
 
         //LASTNAME INPUT
-        lastName.setBounds(70,114,300,50);
+        lastName.setBounds(90,174,300,50);
         lastName.setBackground(new Color(12, 12, 12));
         lastName.setFont(new Font("Arial", Font.PLAIN, 20));
         lastName.setForeground(new Color(195, 195, 195));
@@ -71,7 +100,7 @@ public class RegistrationPage implements ActionListener {
         lastName.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY, 1));
 
         //USERNAME INPUT
-        userName.setBounds(70,190,300,50);
+        userName.setBounds(90,250,300,50);
         userName.setBackground(new Color(12, 12, 12));
         userName.setFont(new Font("Arial", Font.PLAIN, 20));
         userName.setForeground(new Color(195, 195, 195));
@@ -79,7 +108,7 @@ public class RegistrationPage implements ActionListener {
         userName.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY, 1));
 
         //PASSWORD INPUT
-        password.setBounds(70,265,300,50);
+        password.setBounds(90,325,300,50);
         password.setBackground(new Color(12, 12, 12));
         password.setFont(new Font("Arial", Font.PLAIN, 20));
         password.setForeground(new Color(195, 195, 195));
@@ -87,31 +116,31 @@ public class RegistrationPage implements ActionListener {
         password.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY, 1));
 
         //hint name textFields 520
-        nameText.setBounds(70,26,300,12);
+        nameText.setBounds(90,86,300,12);
         nameText.setText("Holder Name:");
         nameText.setFont(new Font("Arial", Font.PLAIN, 14));
         nameText.setForeground(Color.lightGray);
 
         //hint LastName textFields
-        lastNameText.setBounds(70,100,300,12);
+        lastNameText.setBounds(90,160,300,12);
         lastNameText.setText("Holder Surname:");
         lastNameText.setFont(new Font("Arial", Font.PLAIN, 14));
         lastNameText.setForeground(Color.lightGray);
 
         //hint UserName textFields
-        userNameText.setBounds(70,175,300,12);
+        userNameText.setBounds(90,235,300,12);
         userNameText.setText("UserName:");
         userNameText.setFont(new Font("Arial", Font.PLAIN, 14));
         userNameText.setForeground(Color.lightGray);
 
         //hint Password textFields
-        passwordText.setBounds(70,250,300,12);
+        passwordText.setBounds(90,310,300,12);
         passwordText.setText("Password:");
         passwordText.setFont(new Font("Arial", Font.PLAIN, 14));
         passwordText.setForeground(Color.lightGray);
 
         //-----------------------------------------------------------------------------------------------CARD INFO START
-        cardDigits.setBounds(490,40,300,50);
+        cardDigits.setBounds(510,100,300,50);
         cardDigits.setBackground(new Color(12, 12, 12));
         cardDigits.setFont(new Font("Arial", Font.PLAIN, 20));
         cardDigits.setForeground(new Color(195, 195, 195));
@@ -119,7 +148,7 @@ public class RegistrationPage implements ActionListener {
         cardDigits.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY, 1));
 
         //LASTNAME INPUT
-        cvvCvc.setBounds(490,114,70,50);
+        cvvCvc.setBounds(510,174,70,50);
         cvvCvc.setBackground(new Color(12, 12, 12));
         cvvCvc.setFont(new Font("Arial", Font.PLAIN, 20));
         cvvCvc.setForeground(new Color(195, 195, 195));
@@ -127,7 +156,7 @@ public class RegistrationPage implements ActionListener {
         cvvCvc.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY, 1));
 
         //USERNAME INPUT
-        expYear.setBounds(570,114,70,50);
+        expYear.setBounds(590,174,70,50);
         expYear.setBackground(new Color(12, 12, 12));
         expYear.setFont(new Font("Arial", Font.PLAIN, 20));
         expYear.setForeground(new Color(195, 195, 195));
@@ -135,7 +164,7 @@ public class RegistrationPage implements ActionListener {
         expYear.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY, 1));
 
         //USERNAME INPUT
-        expMonth.setBounds(650,114,70,50);
+        expMonth.setBounds(670,174,70,50);
         expMonth.setBackground(new Color(12, 12, 12));
         expMonth.setFont(new Font("Arial", Font.PLAIN, 20));
         expMonth.setForeground(new Color(195, 195, 195));
@@ -143,7 +172,7 @@ public class RegistrationPage implements ActionListener {
         expMonth.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY, 1));
 
         //PASSWORD INPUT
-        cardPin.setBounds(490,190,300,50);
+        cardPin.setBounds(510,250,300,50);
         cardPin.setBackground(new Color(12, 12, 12));
         cardPin.setFont(new Font("Arial", Font.PLAIN, 20));
         cardPin.setForeground(new Color(195, 195, 195));
@@ -151,97 +180,43 @@ public class RegistrationPage implements ActionListener {
         cardPin.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY, 1));
 
         //hint name textFields
-        digitNumText.setBounds(490,26,300,12);
+        digitNumText.setBounds(510,86,300,12);
         digitNumText.setText("Card 16 Digit:");
         digitNumText.setFont(new Font("Arial", Font.PLAIN, 14));
         digitNumText.setForeground(Color.lightGray);
 
         //hint LastName textFields
-        cvvCvcText.setBounds(490,100,300,12);
+        cvvCvcText.setBounds(510,160,300,12);
         cvvCvcText.setText("CVV/CVC:");
         cvvCvcText.setFont(new Font("Arial", Font.PLAIN, 14));
         cvvCvcText.setForeground(Color.lightGray);
 
         //hint UserName textFields
-        expYearText.setBounds(570,100,300,12);
+        expYearText.setBounds(590,160,300,12);
         expYearText.setText("exp.Year:");
         expYearText.setFont(new Font("Arial", Font.PLAIN, 14));
         expYearText.setForeground(Color.lightGray);
 
         //hint UserName textFields
-        expMonthText.setBounds(650,100,300,12);
+        expMonthText.setBounds(670,160,300,12);
         expMonthText.setText("exp.Month:");
         expMonthText.setFont(new Font("Arial", Font.PLAIN, 14));
         expMonthText.setForeground(Color.lightGray);
 
         //hint Password textFields
-        pinText.setBounds(490,175,300,12);
+        pinText.setBounds(510,235,300,12);
         pinText.setText("Card Pin:");
         pinText.setFont(new Font("Arial", Font.PLAIN, 14));
         pinText.setForeground(Color.lightGray);
 
         //-------------------------------------------------------------------------------------------------CARD INFO END
-
-        //----------------------------------------------------------------------ADD ELEMENTS ON REGISTRATION PANEL START
-        regPanel.add(expMonth);
-        regPanel.add(expYear);
-        regPanel.add(expMonthText);
-        regPanel.add(expYearText);
-        regPanel.add(digitNumText);
-        regPanel.add(cvvCvcText);
-        regPanel.add(pinText);
-        regPanel.add(cardDigits);
-        regPanel.add(cardPin);
-        regPanel.add(cvvCvc);
-        regPanel.add(nameText);
-        regPanel.add(lastNameText);
-        regPanel.add(userNameText);
-        regPanel.add(passwordText);
-        regPanel.add(name);
-        regPanel.add(lastName);
-        regPanel.add(userName);
-        regPanel.add(password);
-        regPanel.add(submitButton);
-        regPanel.add(goBakcButton);
-        regPanel.setBounds(20, 50, 850, 400);
-        regPanel.setLayout(null);
-        regPanel.setBackground(new Color(12,12,12));
-        //------------------------------------------------------------------------ADD ELEMENTS ON REGISTRATION PANEL END
     }
     //----------------------------------------------------------------------------------REGISTRATION WINDOW ELEMENTS END
 
 
-    //---------------------------------------------------------------------------------getPanel to move beatween windows
-    public JPanel getPanel()
-    {
-        return regPanel;
-    }
-
     //------------------------------------------------------------------actions on click events ,Check validations START
     @Override
     public void actionPerformed(ActionEvent e) {
-        //----------------------------------------------------------------------------------go back actionListener SATRT
-        if (e.getSource() == goBakcButton)
-        {
-            // Get the parent container of the current panel
-            Container parent = regPanel.getParent();
-
-            if (parent != null) {
-                // Remove the RegistrationWindow panel from the parent
-                parent.remove(regPanel);
-
-                // Call goBackToMain to reset the HomeWindow panel
-                homeWindow.goBackToMain();
-
-                // Add the HomeWindow panel back to the parent container
-                parent.add(homeWindow.getPanel());
-
-                // Revalidate and repaint the parent to refresh the UI
-                parent.revalidate();
-                parent.repaint();
-            }
-        }
-        //------------------------------------------------------------------------------------go back actionListener END
 
         //----------------------------------------------------------------------------submit BUTTON actionListener START
         if (e.getSource() == submitButton)
@@ -761,7 +736,6 @@ public class RegistrationPage implements ActionListener {
             //------------------------------------------------------------------------------------------ONLY NUMBERS END
 
             //--------------------------------------------------NUMBERS COUNT ON CARD INFO MAX AND MINIMUM NUMBERS START
-
             if(ValidationClass.minimumThre(cvvCvcSet) == 1)
             {
                 cvvCvc.setBorder(BorderFactory.createLineBorder(Color.RED, 1));
@@ -886,7 +860,6 @@ public class RegistrationPage implements ActionListener {
             //---------------------------------------------------------------------------------YEAR AND MOTH COMPARE END
 
             //--------------------------------------------------------------------------------------------MARIADB STARTS
-
             final String DB_URL = "jdbc:mariadb://127.0.0.1:3306";
             final String USER = "root";
             final String PASSWORD = "password";
@@ -954,23 +927,41 @@ public class RegistrationPage implements ActionListener {
             }
             //----------------------------------------------------------------------------------------------MARIADB ENDS
 
-            // Remove all components from the main panel
-            // Get the parent container of the current panel
-            Container parent = regPanel.getParent();
-
-            if (parent != null) {
-                // Remove the RegistrationWindow panel from the parent
-                parent.remove(regPanel);
-
-                // Create and add the new registration panel
-                greetingPage = new GreetingPage(this, homeWindow);
-                JPanel secondPanel = greetingPage.getPanel();
-                parent.add(secondPanel);
-
-                // Revalidate and repaint the parent to refresh the UI
-                parent.revalidate();
-                parent.repaint();
-            }
+            //MAKE REGISTRATION WINDOW ELEMENTS INVISIBLE IF REG HAPPENS
+            digitNumText.setVisible(false);
+            pinText.setVisible(false);
+            cardDigits.setVisible(false);
+            cardPin.setVisible(false);
+            expMonthText.setVisible(false);
+            expYearText.setVisible(false);
+            expMonth.setVisible(false);
+            expYear.setVisible(false);
+            cvvCvcText.setVisible(false);
+            cvvCvc.setVisible(false);
+            password.setVisible(false);
+            passwordText.setVisible(false);
+            userNameText.setVisible(false);
+            userName.setVisible(false);
+            lastName.setVisible(false);
+            lastNameText.setVisible(false);
+            nameText.setVisible(false);
+            name.setVisible(false);
+            goBakcButton.setVisible(false);
+            submitButton.setVisible(false);
+            //makeing registration window inputs empty if user registers suc
+            name.setText("");
+            lastName.setText("");
+            userName.setText("");
+            password.setText("");
+            cardDigits.setText("");
+            expYear.setText("");
+            expMonth.setText("");
+            cvvCvc.setText("");
+            cardPin.setText("");
+            //MAKEING GREETING WINDOW ELEMENTS VISIBLE IF REG HAPPENS
+            greetingPage.greetingText.setVisible(true);
+            greetingPage.mainMenuButton.setVisible(true);
+            greetingPage.imageLable.setVisible(true);
         }
         //------------------------------------------------------------------------------submit BUTTON actionListener END
     }

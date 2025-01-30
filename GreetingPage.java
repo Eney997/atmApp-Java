@@ -4,32 +4,40 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Objects;
 
-public class GreetingPage implements ActionListener {
+public class GreetingPage {
 
-    JPanel greetpanel = new JPanel();
-    RegistrationPage regWindow;
     JButton mainMenuButton = new JButton("Home page");
-    JProgressBar progressBar = new JProgressBar();
     JLabel imageLable = new JLabel();
     JLabel greetingText = new JLabel();
-    //UserPage userPage;
     HomeWindow homeWindow;
 
     //--------------------------------------------------------------------------------ELEMENTS FOR GREETING WINDOW START
-    GreetingPage(RegistrationPage registrationWindow,HomeWindow homeWindow)
+    GreetingPage(HomeWindow homeWindow)
     {
-        this.regWindow = registrationWindow;
         this.homeWindow = homeWindow;
 
         greetingText.setText("Card Information Is Saved");
-        greetingText.setBounds(470,10,350,200);
+        greetingText.setBounds(470,60,350,200);
         greetingText.setFont(new Font("Arial", Font.BOLD, 24));
         greetingText.setForeground(Color.lightGray);
 
         //BUTTON CREATION TO RETURN MAIN WINDOW
-        mainMenuButton.setBounds(570,160,100,35);
+        mainMenuButton.setBounds(570,210,100,35);
         mainMenuButton.setFocusable(false);
-        mainMenuButton.addActionListener(this);
+        mainMenuButton.addActionListener(exp->{//RETURN HOMEWINDOW FROM GREETING WINDOW
+            homeWindow.loginButton.setVisible(true);
+            homeWindow.registerButton.setVisible(true);
+            homeWindow.mainWindowSText.setVisible(true);
+            homeWindow.mainWindowFText.setVisible(true);
+            homeWindow.userNameText.setVisible(true);
+            homeWindow.passwordText.setVisible(true);
+            homeWindow.atmImage.setVisible(true);
+
+            greetingText.setVisible(false);
+            mainMenuButton.setVisible(false);
+            imageLable.setVisible(false);
+
+        });
         mainMenuButton.setBackground(new Color(12, 12, 12));
         mainMenuButton.setFont(new Font("Arial", Font.BOLD, 16));
         mainMenuButton.setForeground(new Color(195,42,109));
@@ -42,53 +50,7 @@ public class GreetingPage implements ActionListener {
         imageLable = new JLabel();
         //makeing cp image sizes
         imageLable.setIcon(new ImageIcon(image));
-        imageLable.setBounds(100, 35, 200, 200);
-
-
-        //--------------------------------------------------------------------------add elements on greeting panel START
-        greetpanel.add(greetingText);
-        greetpanel.add(imageLable);
-        greetpanel.add(progressBar);
-        greetpanel.add(mainMenuButton);
-        greetpanel.setLayout(null);
-        greetpanel.setBounds(20,50,850,400);
-        greetpanel.setBackground(new Color(12,12,12));
-        //----------------------------------------------------------------------------add elements on greeting panel END
+        imageLable.setBounds(100, 100, 200, 200);
     }
     //----------------------------------------------------------------------------------ELEMENTS FOR GREETING WINDOW END
-
-
-    //---------------------------------------------------------------------------------getPanel to move beatween windows
-    public JPanel getPanel()
-    {
-        return greetpanel;
-    }
-
-    //---------------------------------------------------------------------------------Actoiontos return main menu Start
-    @Override
-    public void actionPerformed(ActionEvent e)
-    {
-        //return on main window
-        if(e.getSource() == mainMenuButton)
-        {
-            // Get the parent container of the current panel
-            Container parent = greetpanel.getParent();
-
-            if (parent != null) {
-                // Remove the RegistrationWindow panel from the parent
-                parent.remove(greetpanel);
-
-                // Call goBackToMain to reset the HomeWindow panel
-                homeWindow.goBackToMain();
-
-                // Add the HomeWindow panel back to the parent container
-                parent.add(homeWindow.getPanel());
-
-                // Revalidate and repaint the parent to refresh the UI
-                parent.revalidate();
-                parent.repaint();
-            }
-        }
-    }
-    //-----------------------------------------------------------------------------------Actoiontos return main menu END
 }
