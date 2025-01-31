@@ -36,7 +36,6 @@ public class GreetingPage {
             greetingText.setVisible(false);
             mainMenuButton.setVisible(false);
             imageLable.setVisible(false);
-
         });
         mainMenuButton.setBackground(new Color(12, 12, 12));
         mainMenuButton.setFont(new Font("Arial", Font.BOLD, 16));

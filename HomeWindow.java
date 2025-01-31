@@ -21,7 +21,7 @@ public class HomeWindow implements ActionListener {
     //------------------------------------------------------------------------Constructor to initialize the JPanel START
     HomeWindow() {
         //button LOGIN
-        loginButton.setBounds(578, 280, 170, 50);
+        loginButton.setBounds(578, 265, 170, 50);
         loginButton.setFocusable(false);
         loginButton.addActionListener(this);
         loginButton.setBackground(new Color(12, 12, 12));
@@ -30,7 +30,7 @@ public class HomeWindow implements ActionListener {
         loginButton.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY, 1));
 
         //BUTTON REGISTER
-        registerButton.setBounds(578, 340, 170, 50);
+        registerButton.setBounds(578, 325, 170, 50);
         registerButton.setFocusable(false);
         registerButton.addActionListener(exp->{//if user clicks registration button homeWIndow will dissapear
             loginButton.setVisible(false);
