@@ -15,6 +15,7 @@ public class HomeWindow implements ActionListener {
     JLabel userNameText = new JLabel();
     JLabel passwordText = new JLabel();
     JLabel atmImage = new JLabel();
+    ImageIcon imageIcon3 = new ImageIcon(Objects.requireNonNull(Main.class.getResource("/Assets/bank.png")));
     RegistrationPage registrationPage;
     UserPage userPage;
 
@@ -98,11 +99,8 @@ public class HomeWindow implements ActionListener {
         passwordText.setForeground(new Color(195, 195, 195));
 
         //------------------------------------------------todoImage
-        ImageIcon imageIcon3 = new ImageIcon(Objects.requireNonNull(Main.class.getResource("/Assets/bank.png")));
         // Scale the image to the desired size
         Image image3 = imageIcon3.getImage().getScaledInstance(200, 200, Image.SCALE_SMOOTH);
-        atmImage = new JLabel();
-        //makeing cp image sizes
         atmImage.setIcon(new ImageIcon(image3));
         atmImage.setBounds(110, 100, 200, 200);
     }

@@ -8,6 +8,7 @@ public class GreetingPage {
 
     JButton mainMenuButton = new JButton("Home page");
     JLabel imageLable = new JLabel();
+    ImageIcon imageIcon = new ImageIcon(Objects.requireNonNull(getClass().getResource("/Assets/card.png")));
     JLabel greetingText = new JLabel();
     HomeWindow homeWindow;
 
@@ -43,11 +44,7 @@ public class GreetingPage {
         mainMenuButton.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY, 1));
 
         //CARD image
-        ImageIcon imageIcon = new ImageIcon(Objects.requireNonNull(getClass().getResource("/Assets/card.png")));
-        // Scale the image to the desired size
         Image image = imageIcon.getImage().getScaledInstance(200, 200, Image.SCALE_SMOOTH);
-        imageLable = new JLabel();
-        //makeing cp image sizes
         imageLable.setIcon(new ImageIcon(image));
         imageLable.setBounds(100, 100, 200, 200);
     }

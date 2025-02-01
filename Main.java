@@ -7,7 +7,7 @@ import java.util.Objects;
 
 public class Main {
     public static void main(String[] args) {
-
+        //events table
         // Create mainJFrame
         JFrame appFrame = new JFrame();
         //buttons for mainJFRAME
@@ -68,6 +68,9 @@ public class Main {
         //minimize button
         minimizeButton.setBounds(780, 7, 45, 35);
         minimizeButton.setFocusable(false);
+        minimizeButton.addActionListener(exp->{
+            appFrame.setState(JFrame.ICONIFIED);
+        });
         minimizeButton.setBackground(new Color(12, 12, 12));
         minimizeButton.setFont(new Font("Arial", Font.BOLD, 16));
         minimizeButton.setForeground(new Color(250,50, 97));
@@ -76,6 +79,9 @@ public class Main {
         //exitbutton
         exitButton.setBounds(830, 7, 45, 35);
         exitButton.setFocusable(false);
+        exitButton.addActionListener(exp->{
+            System.exit(0);
+        });
         exitButton.setBackground(new Color(12, 12, 12));
         exitButton.setFont(new Font("Arial", Font.BOLD, 16));
         exitButton.setForeground(new Color(250,50, 97));
@@ -83,25 +89,7 @@ public class Main {
 
         //---------------------------------------------------------------------MINIMIZE AND MAXIMIZE BUTTON ELEMENTS END
 
-        //----------------------------------------------MINIMIZE AND MAXIMIZE BUTTON MOUSELISTENERS ALSO APP MOVE  START
-        // add minimize button event listener
-        minimizeButton.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                // Minimize the window
-                appFrame.setState(JFrame.ICONIFIED);
-            }
-        });
-
-        // add exit button event listener
-        exitButton.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                // Close the application
-                System.exit(0);
-            }
-        });
-
+        //---------------------------------------------------------------------------------------------- APP MOVE  START
         final int[] mouseX = {0};
         final int[] mouseY = {0};
 
@@ -127,7 +115,7 @@ public class Main {
             }
         });
 
-        //-------------------------------------------------MINIMIZE AND MAXIMIZE BUTTON MOUSELISTENERS ALSO APP MOVE END
+        //------------------------------------------------------------------------------------------------- APP MOVE END
 
         //----------------------------------------CREATING STYLES MAIN JFRAME AND ADDING DIFFERENT WINDOW ELEMENTS START
 

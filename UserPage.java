@@ -24,6 +24,7 @@ public class UserPage implements ActionListener {
     JLabel hiUserName = new JLabel();
     JLabel amountMoney = new JLabel();
     JLabel paymentImage = new JLabel();
+    ImageIcon imageIcon3 = new ImageIcon(Objects.requireNonNull(Main.class.getResource("/Assets/payments.png")));
     //in atmButton deposite
     JButton inDepositButton = new JButton("Pay");
     JLabel pleasePutDepositeMoney = new JLabel();
@@ -217,11 +218,8 @@ public class UserPage implements ActionListener {
         amountMoney.setForeground(Color.lightGray);
         amountMoney.setVisible(false);
 
-        ImageIcon imageIcon3 = new ImageIcon(Objects.requireNonNull(Main.class.getResource("/Assets/payments.png")));
         // Scale the image to the desired size
         Image image3 = imageIcon3.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH);
-        paymentImage = new JLabel();
-        //makeing cp image sizes
         paymentImage.setIcon(new ImageIcon(image3));
         paymentImage.setBounds(635, 123, 100, 100);
         paymentImage.setVisible(false);
